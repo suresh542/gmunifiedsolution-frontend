@@ -120,6 +120,71 @@ const faqLinks = [
   },
 ];
 
+
+const testimonials = [
+  {
+    company: "TATA Steel",
+    person: "Operations Manager",
+    feedback:
+      "GM Unified Solutions has been a reliable partner in managing workforce compliance and statutory requirements. Their proactive approach and industry expertise have significantly improved our operational efficiency.",
+  },
+  {
+    company: "Nutri Pluses India Private Limited",
+    person: "HR Head",
+    feedback:
+      "The team provides exceptional payroll and compliance support. Their attention to detail and timely execution have helped us maintain complete regulatory compliance.",
+  },
+  {
+    company: "Ariesdec Global",
+    person: "Managing Director",
+    feedback:
+      "Professional, responsive, and highly knowledgeable. GM Unified Solutions streamlined our HR documentation and compliance processes, saving valuable time and resources.",
+  },
+  {
+    company: "Sreeja Enterprises",
+    person: "Business Owner",
+    feedback:
+      "Their staffing and payroll services have simplified our day-to-day operations. We appreciate their commitment to accuracy and customer support.",
+  },
+  {
+    company: "Sunil Enterprises",
+    person: "Administration Manager",
+    feedback:
+      "GM Unified Solutions consistently delivers quality service and ensures all statutory filings are completed on time. A trusted business partner.",
+  },
+  {
+    company: "KEK Solutions",
+    person: "Director",
+    feedback:
+      "From employee onboarding to compliance management, the team handled every process professionally and efficiently. Highly recommended.",
+  },
+  {
+    company: "Senthoor Foods",
+    person: "Plant Manager",
+    feedback:
+      "Their expertise in labour law compliance and licensing support has helped us focus on production while remaining fully compliant.",
+  },
+  {
+    company: "Vanam Facility Management Services",
+    person: "Operations Head",
+    feedback:
+      "Excellent support in workforce deployment and payroll administration. Their responsiveness and professionalism stand out.",
+  },
+  {
+    company: "CRP (India) Private Limited",
+    person: "HR Manager",
+    feedback:
+      "GM Unified Solutions has become an integral part of our HR operations. Their services are dependable, transparent, and cost-effective.",
+  },
+  {
+    company: "Neo Waste Innovation Private Limited",
+    person: "Managing Partner",
+    feedback:
+      "The team's knowledge of statutory compliance and business registrations helped us navigate complex regulatory requirements with ease.",
+  },
+];
+
+
 // Reusable card for the first two "large" featured-style slots
 function BigCard({ s, i }) {
   return (
@@ -231,7 +296,17 @@ function ServiceCategory({ eyebrow, heading, subheading, services }) {
 }
 
 export default function Solutions() {
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonialIndex(prevIndex => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const testimonial = testimonials[activeTestimonialIndex];
 
   return (
     <div className="pt-20">
@@ -291,33 +366,64 @@ export default function Solutions() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-violet-400">
+      <section className="py-20 bg-[linear-gradient(0deg,_rgba(34,112,195,1)_0%,_rgba(222,45,253,1)_100%)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
-                alt="Testimonial"
-                className="rounded-3xl w-full h-80 object-cover object-top"
-              />
-            </AnimatedSection>
+          <div className="">
+
             <AnimatedSection delay={150}>
-              <p className="font-semibold text-3xl uppercase tracking-wider mb-3 text-gray-800">Testimonials</p>
-              <h2 className="text-4xl font-black text-gray-900 mb-8">Trusted by Businesses Across Industries</h2>
-              <blockquote className="bg-white rounded-2xl p-8 shadow-xl">
-                <p className="text-gray-700 italic text-lg leading-relaxed mb-6">
-                  "GM Unified Solution has simplified our payroll processing, compliance management, and statutory filings. Their team is responsive, professional, and ensures we never miss important deadlines."
-                </p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-bold text-gray-900">Michael Robert</p>
-                    <p className="text-violet-500 text-sm font-semibold">Full Case Study</p>
-                  </div>
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} className="text-violet-400 fill-violet-400" />)}
-                  </div>
+              <p className="font-semibold text-3xl uppercase tracking-wider mb-3 text-white">
+                Client Testimonials
+              </p>
+
+              <h2 className="text-4xl font-black text-white mb-8">
+                Trusted by Leading Businesses Across Industries
+              </h2>
+              <div className="overflow-hidden rounded-3xl bg-white shadow-xl">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${activeTestimonialIndex * 100}%)` }}
+                >
+                  {testimonials.map((item) => (
+                    <div key={item.company} className="min-w-full p-8">
+                      <blockquote>
+                        <p className="text-gray-700 italic text-lg leading-relaxed mb-6">
+                          "{item.feedback}"
+                        </p>
+
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-bold text-gray-900">{item.company}</p>
+                            <p className="text-violet-500 text-sm font-semibold">
+                              {item.person}
+                            </p>
+                          </div>
+
+                          <div className="flex gap-0.5">
+                            {[1, 2, 3, 4, 5].map((i) => (
+                              <Star
+                                key={i}
+                                size={14}
+                                className="text-violet-400 fill-violet-400"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                  ))}
                 </div>
-              </blockquote>
+              </div>
+              <div className="mt-6 flex justify-center gap-3">
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveTestimonialIndex(idx)}
+                    className={`rounded-full transition-all duration-300 ${idx === activeTestimonialIndex ? 'w-4 h-4 bg-white' : 'w-3 h-3 bg-white/70'}`}
+                    aria-label={`Show testimonial ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </AnimatedSection>
           </div>
         </div>

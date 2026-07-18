@@ -117,17 +117,17 @@ export default function FAQs() {
               <img
                 src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80"
                 alt="Team meeting"
-                className="rounded-2xl w-full h-44 object-cover"
+                className="rounded-2xl w-full h-60 object-cover"
               />
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
                 alt="Discussion"
-                className="rounded-2xl w-full h-44 object-cover"
+                className="rounded-2xl w-full h-60 object-cover"
               />
               <img
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80"
                 alt="Collaboration"
-                className="rounded-2xl w-full h-44 object-cover"
+                className="rounded-2xl w-full h-60 object-cover"
               />
             </AnimatedSection>
           </div>

@@ -3,6 +3,7 @@ import { ArrowRight, Star, CheckCircle, BarChart2, TrendingUp, Users, Globe, Awa
 import AnimatedSection from '../components/AnimatedSection';
 import HeroImage from "../assets/homeImage1.png"
 import HomeAboutImg from "../assets/HomeAboutImg.png"
+import HomeImg3 from "../assets/HomeImg3.png"
 import { useEffect, useState } from 'react';
 
 
@@ -351,7 +352,7 @@ export default function Home() {
 
             <AnimatedSection>
               <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
+                src={HomeImg3}
                 alt="Business professional"
                 className="rounded-3xl w-full h-80 object-cover"
               />

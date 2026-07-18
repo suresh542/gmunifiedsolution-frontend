@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, CheckCircle, BarChart2, TrendingUp, Users, Globe, Award, Play, ChevronRight } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import HeroImage from "../assets/homeImage1.png"
-import { useState } from 'react';
+import HomeAboutImg from "../assets/HomeAboutImg.png"
+import { useEffect, useState } from 'react';
 
 
 const services = [
@@ -67,33 +68,108 @@ const caseStudies = [
   },
 ];
 
+const testimonials = [
+  {
+    company: "TATA Steel",
+    person: "Operations Manager",
+    feedback:
+      "GM Unified Solutions has been a reliable partner in managing workforce compliance and statutory requirements. Their proactive approach and industry expertise have significantly improved our operational efficiency.",
+  },
+  {
+    company: "Nutri Pluses India Private Limited",
+    person: "HR Head",
+    feedback:
+      "The team provides exceptional payroll and compliance support. Their attention to detail and timely execution have helped us maintain complete regulatory compliance.",
+  },
+  {
+    company: "Ariesdec Global",
+    person: "Managing Director",
+    feedback:
+      "Professional, responsive, and highly knowledgeable. GM Unified Solutions streamlined our HR documentation and compliance processes, saving valuable time and resources.",
+  },
+  {
+    company: "Sreeja Enterprises",
+    person: "Business Owner",
+    feedback:
+      "Their staffing and payroll services have simplified our day-to-day operations. We appreciate their commitment to accuracy and customer support.",
+  },
+  {
+    company: "Sunil Enterprises",
+    person: "Administration Manager",
+    feedback:
+      "GM Unified Solutions consistently delivers quality service and ensures all statutory filings are completed on time. A trusted business partner.",
+  },
+  {
+    company: "KEK Solutions",
+    person: "Director",
+    feedback:
+      "From employee onboarding to compliance management, the team handled every process professionally and efficiently. Highly recommended.",
+  },
+  {
+    company: "Senthoor Foods",
+    person: "Plant Manager",
+    feedback:
+      "Their expertise in labour law compliance and licensing support has helped us focus on production while remaining fully compliant.",
+  },
+  {
+    company: "Vanam Facility Management Services",
+    person: "Operations Head",
+    feedback:
+      "Excellent support in workforce deployment and payroll administration. Their responsiveness and professionalism stand out.",
+  },
+  {
+    company: "CRP (India) Private Limited",
+    person: "HR Manager",
+    feedback:
+      "GM Unified Solutions has become an integral part of our HR operations. Their services are dependable, transparent, and cost-effective.",
+  },
+  {
+    company: "Neo Waste Innovation Private Limited",
+    person: "Managing Partner",
+    feedback:
+      "The team's knowledge of statutory compliance and business registrations helped us navigate complex regulatory requirements with ease.",
+  },
+];
+
+
 export default function Home() {
-    const [openIdx, setOpenIdx] = useState(null);
-      const [form, setForm] = useState({ email: '', name: '', message: '' });
-      const [submitted, setSubmitted] = useState(false);
-      const [loading, setLoading] = useState(false);
-  
-      const handleSubmit = async (e) => {
-          e.preventDefault();
-          setLoading(true);
-              try {
-              const res = await fetch('https://gm-unified-solutions-backend.vercel.app/api/quote', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(form),
-              });
-  
-              if (!res.ok) throw new Error('Failed to submit quote');
-  
-              setSubmitted(true);
-              setForm({ email: '', name: '', message: '' });
-          } catch (err) {
-              console.error(err);
-              alert('Submission failed. Please try again.');
-          } finally {
-              setLoading(false);
-          }
-      };
+  const [openIdx, setOpenIdx] = useState(null);
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  const [form, setForm] = useState({ email: '', name: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonialIndex(prevIndex => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const testimonial = testimonials[activeTestimonialIndex];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('https://gm-unified-solutions-backend.vercel.app/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error('Failed to submit quote');
+
+      setSubmitted(true);
+      setForm({ email: '', name: '', message: '' });
+    } catch (err) {
+      console.error(err);
+      alert('Submission failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div>
       {/* Hero */}
@@ -101,7 +177,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-4">Modern HR Platform</p>
+              <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-4">Modern HR Platform</p>
               <h1 className="text-24xl sm:text-5xl lg:text-5xl font-black text-gray-900 leading-tight mb-6">
                 MODERN HR FOR<br />
                 <span className="text-gray-900">MODERN BUSINESS</span>
@@ -110,8 +186,8 @@ export default function Home() {
                 The HR platform that drives productivity, engagement, and retention for modern, fast-growing, global businesses.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link to="/contact" className="bg-violet-400 hover:bg-violet-500 text-black font-bold px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 justify-center">
-                  GET A DEMO <ArrowRight size={16} />
+                <Link to="/services" className="bg-violet-400 hover:bg-violet-500 text-black font-bold px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 justify-center">
+                  Check our Serives <ArrowRight size={16} />
                 </Link>
                 {/* <button className="flex items-center gap-2 text-gray-700 font-semibold hover:text-violet-500 transition-colors justify-center">
                   <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
@@ -203,27 +279,11 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection>
-              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Matching Solution</p>
-              <h2 className="text-3xl lg:text-4xl font-black text-gray-900 leading-tight mb-6">
-                Comprehensive business support services tailored to your operational requirements.              </h2>
-              <blockquote className="border-l-4 border-violet-400 pl-6 mb-6">
-                <p className="text-gray-600 italic leading-relaxed mb-4">
-                  "From payroll processing and labour law compliance to recruitment and GST services, we provide end-to-end solutions that simplify business management and ensure compliance."                </p>
-                <div className="flex items-center gap-3">
-                  <img src="https://i.pravatar.cc/40?img=5" alt="" className="w-10 h-10 rounded-full" />
-                  <div>
-                    <p className="font-bold text-gray-900 text-sm">Emily Johnson Trisolino</p>
-                    <p className="text-xs text-gray-500">Product Management – HR Product</p>
-                  </div>
-                </div>
-              </blockquote>
-            </AnimatedSection>
 
             <AnimatedSection delay={150}>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80"
+                  src={HomeAboutImg}
                   alt="Team collaboration"
                   className="rounded-3xl w-full h-80 object-cover"
                 />
@@ -236,6 +296,26 @@ export default function Home() {
                 </div>
               </div>
             </AnimatedSection>
+
+            <AnimatedSection>
+              <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">About  Us</p>
+              <h2 className="text-3xl lg:text-4xl font-black text-gray-900 leading-tight mb-6">
+                Empowering Businesses with Complete HR & Compliance Solutions.              </h2>
+              <blockquote className="border-l-4 border-violet-400 pl-6 mb-6">
+                <p className="text-gray-600 italic leading-relaxed mb-4">
+                  "At GM Unified Solutions, we simplify complex business processes through expert HR management,
+                  statutory compliance, payroll administration, staffing solutions, and business registrations. Since 2021, we have been committed to delivering reliable,
+                  cost-effective, and compliant solutions that enable businesses to focus on their core operations while we manage the administrative and regulatory requirements."</p>
+                <div className="flex items-center gap-3">
+                  {/* <img src="https://i.pravatar.cc/40?img=5" alt="" className="w-10 h-10 rounded-full" /> */} <br />
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm">GM Unified Solutions</p>
+                    <p className="text-xs text-gray-500">Trusted Partner for HR, Compliance & Business Support Services Since 2021</p>
+                  </div>
+                </div>
+              </blockquote>
+            </AnimatedSection>
+
           </div>
         </div>
       </section>
@@ -244,15 +324,9 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection>
-              <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
-                alt="Business professional"
-                className="rounded-3xl w-full h-80 object-cover"
-              />
-            </AnimatedSection>
+
             <AnimatedSection delay={150}>
-              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Business Solutions That Drive Growth</p>
+              <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Business Solutions That Drive Growth</p>
               <h2 className="text-3xl font-black text-gray-900 mb-6">
                 Empowering businesses with reliable HR, payroll, compliance, and staffing services.              </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
@@ -270,10 +344,19 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link to="/solutions" className="mt-8 inline-flex items-center gap-2 bg-gray-900 text-white font-bold px-6 py-3 rounded-full hover:bg-gray-700 transition-colors">
+              <Link to="/services" className="mt-8 inline-flex items-center gap-2 bg-gray-900 text-white font-bold px-6 py-3 rounded-full hover:bg-gray-700 transition-colors">
                 READ MORE <ChevronRight size={16} />
               </Link>
             </AnimatedSection>
+
+            <AnimatedSection>
+              <img
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80"
+                alt="Business professional"
+                className="rounded-3xl w-full h-80 object-cover"
+              />
+            </AnimatedSection>
+
           </div>
         </div>
       </section>
@@ -282,7 +365,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-14">
-            <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Our Services</p>
+            <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Our Services</p>
             <h2 className="text-3xl lg:text-4xl font-black text-gray-900">
               Cross-platform HR solutions  &<br /> Business Solutions for Modern Organizations
             </h2>
@@ -297,7 +380,7 @@ export default function Home() {
                   <div className="text-3xl mb-4">{s.icon}</div>
                   <h3 className={`font-bold text-lg mb-3 ${s.featured ? 'text-white' : 'text-gray-900'}`}>{s.title}</h3>
                   <p className={`text-sm leading-relaxed mb-4 ${s.featured ? 'text-gray-300' : 'text-gray-500'}`}>{s.desc}</p>
-                  <Link to="/solutions" className={`inline-flex items-center gap-1 text-sm font-semibold ${s.featured ? 'text-violet-400' : 'text-violet-500'} hover:underline`}>
+                  <Link to="/services" className={`inline-flex items-center gap-1 text-sm font-semibold ${s.featured ? 'text-violet-400' : 'text-violet-500'} hover:underline`}>
                     READ MORE <ChevronRight size={14} />
                   </Link>
                 </div>
@@ -306,7 +389,7 @@ export default function Home() {
           </div>
 
           <AnimatedSection className="text-center mt-10">
-            <Link to="/solutions" className="inline-flex items-center gap-2 bg-gray-900 text-white font-bold px-8 py-3.5 rounded-full hover:bg-gray-700 transition-colors">
+            <Link to="/services" className="inline-flex items-center gap-2 bg-gray-900 text-white font-bold px-8 py-3.5 rounded-full hover:bg-gray-700 transition-colors">
               SEE ALL SERVICES <ArrowRight size={16} />
             </Link>
           </AnimatedSection>
@@ -318,12 +401,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="flex flex-col sm:flex-row sm:items-center justify-between mb-12">
             <div>
-              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-2">HR & Compliance Solutions</p>
+              <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-2">HR & Compliance Solutions</p>
               <h2 className="text-3xl font-black text-gray-900">
                 Empowering Businesses with Reliable Workforce & Compliance Management
               </h2>
             </div>
-            <Link to="/solutions" className="mt-4 sm:mt-0 text-sm font-bold text-gray-700 hover:text-violet-500 underline underline-offset-4 transition-colors whitespace-nowrap">
+            <Link to="/services" className="mt-4 sm:mt-0 text-sm font-bold text-gray-700 hover:text-violet-500 underline underline-offset-4 transition-colors whitespace-nowrap">
               EXPLORE OUR SERVICES →
             </Link>
           </AnimatedSection>
@@ -336,7 +419,7 @@ export default function Home() {
                 <h3 className="text-white text-xl font-bold mb-4">Your Trusted Partner for HR, Payroll & Compliance</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   We help businesses streamline payroll, statutory compliance, staffing, and workforce management through efficient, reliable, and customized solutions tailored to their operational needs.                </p>
-                <Link to="/solutions" className="inline-flex items-center gap-2 text-violet-400 font-bold hover:underline">
+                <Link to="/services" className="inline-flex items-center gap-2 text-violet-400 font-bold hover:underline">
                   READ MORE <ChevronRight size={16} />
                 </Link>
               </div>
@@ -361,7 +444,7 @@ export default function Home() {
                   <div className="p-5">
                     <p className="font-black text-lg text-gray-900 mb-2">{cs.logo}</p>
                     <p className="text-sm text-gray-600 mb-4">{cs.title}</p>
-                    <Link to="/solutions" className="inline-flex items-center gap-1 text-sm font-bold text-violet-500 hover:underline">
+                    <Link to="/services" className="inline-flex items-center gap-1 text-sm font-bold text-violet-500 hover:underline">
                       READ MORE <ChevronRight size={14} />
                     </Link>
                   </div>
@@ -373,120 +456,151 @@ export default function Home() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-violet-400">
+      <section className="py-20 bg-[linear-gradient(0deg,_rgba(34,112,195,1)_0%,_rgba(222,45,253,1)_100%)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
-                alt="Happy professional"
-                className="rounded-3xl w-full h-80 object-cover object-top"
-              />
-            </AnimatedSection>
+          <div className="">
+          
             <AnimatedSection delay={150}>
-              <p className="font-semibold text-sm uppercase tracking-wider mb-3 text-gray-800">Testimonials</p>
-              <h2 className="text-4xl font-black text-gray-900 mb-8">Makes an impact</h2>
-              <blockquote className="bg-white rounded-2xl p-8 shadow-xl">
-                <p className="text-gray-700 italic text-lg leading-relaxed mb-6">
-                  "Sed ut unde omnis iste natus sit volur tatem accus antium laudantium totam rem aperiam eaque ipsa ab illo inventore veritatis et architecto beatae vitae dicta sunt explicabo."
-                </p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-bold text-gray-900">Michael Robert</p>
-                    <p className="text-violet-500 text-sm font-semibold">Full Case Study</p>
-                  </div>
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} className="text-violet-400 fill-violet-400" />)}
-                  </div>
+              <p className="font-semibold text-3xl uppercase tracking-wider mb-3 text-white">
+                Client Testimonials
+              </p>
+
+              <h2 className="text-4xl font-black text-white mb-8">
+                Trusted by Leading Businesses Across Industries
+              </h2>
+              <div className="overflow-hidden rounded-3xl bg-white shadow-xl">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${activeTestimonialIndex * 100}%)` }}
+                >
+                  {testimonials.map((item) => (
+                    <div key={item.company} className="min-w-full p-8">
+                      <blockquote>
+                        <p className="text-gray-700 italic text-lg leading-relaxed mb-6">
+                          "{item.feedback}"
+                        </p>
+
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-bold text-gray-900">{item.company}</p>
+                            <p className="text-violet-500 text-sm font-semibold">
+                              {item.person}
+                            </p>
+                          </div>
+
+                          <div className="flex gap-0.5">
+                            {[1, 2, 3, 4, 5].map((i) => (
+                              <Star
+                                key={i}
+                                size={14}
+                                className="text-violet-400 fill-violet-400"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                  ))}
                 </div>
-              </blockquote>
+              </div>
+              <div className="mt-6 flex justify-center gap-3">
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveTestimonialIndex(idx)}
+                    className={`rounded-full transition-all duration-300 ${idx === activeTestimonialIndex ? 'w-4 h-4 bg-white' : 'w-3 h-3 bg-white/70'}`}
+                    aria-label={`Show testimonial ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Pricing CTA */}
-       <section className="py-20 bg-white mt-20 rounded-3xl shadow-lg">
-                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                             <div className="border border-gray-200 rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
-                                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-violet-200" />
-                                 <AnimatedSection>
-                                     <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get A Quote</p>
-                                     <h2 className="text-3xl font-black text-gray-900 mb-4">
-                                         Customized HR, Payroll & Compliance Solutions for Your Business
-                                     </h2>
-                                     <p className="text-gray-600 mb-8 leading-relaxed">
-                                         From payroll processing and statutory compliance to GST filing and staffing
-                                         services, GM Unified Solution delivers reliable, cost-effective support for
-                                         businesses of all sizes. Get a customized quote tailored to your needs.                       </p>
-                                 </AnimatedSection>
-     
-                                 <AnimatedSection delay={150}>
-                                     {submitted ? (
-                                         <div className="text-center py-12">
-                                             <div className="text-5xl mb-4">✅</div>
-                                             <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
-                                             <p className="text-gray-500">We will get back to you within 24 hours.</p>
-                                         </div>
-                                     ) : (
-                                         <form onSubmit={handleSubmit} className="space-y-4">
-                                             <input
-                                                 type="email"
-                                                 required
-                                                 placeholder="Business Email"
-                                                 value={form.email}
-                                                 onChange={e => setForm({ ...form, email: e.target.value })}
-                                                 className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                             />
-                                             <input
-                                                 type="text"
-                                                 required
-                                                 placeholder="Full Name"
-                                                 value={form.name}
-                                                 onChange={e => setForm({ ...form, name: e.target.value })}
-                                                 className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                             />
-                                             <textarea
-                                                 required
-                                                 placeholder="Share why you are contacting"
-                                                 rows={4}
-                                                 value={form.message}
-                                                 onChange={e => setForm({ ...form, message: e.target.value })}
-                                                 className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
-                                             />
-                                             <button
-                                                 type="submit"
-                                                 disabled={loading}
-                                                 className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                                             >
-                                                 {loading ? 'Sending...' : 'GET A QUOTE'}
-                                             </button>
-                                             <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
-                                         </form>
-                                     )}
-                                 </AnimatedSection>
-                             </div>
-                         </div>
-                     </section>
+      <section className="py-20 bg-white mt-20 rounded-3xl shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border border-gray-200 rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-violet-200" />
+            <AnimatedSection>
+              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get A Quote</p>
+              <h2 className="text-3xl font-black text-gray-900 mb-4">
+                Customized HR, Payroll & Compliance Solutions for Your Business
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                From payroll processing and statutory compliance to GST filing and staffing
+                services, GM Unified Solution delivers reliable, cost-effective support for
+                businesses of all sizes. Get a customized quote tailored to your needs.                       </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={150}>
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-5xl mb-4">✅</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
+                  <p className="text-gray-500">We will get back to you within 24 hours.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Business Email"
+                    value={form.email}
+                    onChange={e => setForm({ ...form, email: e.target.value })}
+                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                  <input
+                    type="text"
+                    required
+                    placeholder="Full Name"
+                    value={form.name}
+                    onChange={e => setForm({ ...form, name: e.target.value })}
+                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                  />
+                  <textarea
+                    required
+                    placeholder="Share why you are contacting"
+                    rows={4}
+                    value={form.message}
+                    onChange={e => setForm({ ...form, message: e.target.value })}
+                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {loading ? 'Sending...' : 'GET A QUOTE'}
+                  </button>
+                  <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
+                </form>
+              )}
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
       {/* Bottom CTA Banner */}
-     <section className="py-16 bg-gray-900">
-             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-                 <AnimatedSection>
-                   <h2 className="text-2xl lg:text-3xl font-black text-white max-w-lg">
-                     Get personalized support for your business requirements.
-                   </h2>
-                   <p className="text-gray-400 mt-3">This structure aligns every section with your actual services and will look much more professional and trustworthy than generic HR software content.</p>
-                 </AnimatedSection>
-                 <AnimatedSection delay={100}>
-                   <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-gray-900 transition-colors whitespace-nowrap">
-                     GET IN TOUCH <ArrowRight size={16} />
-                   </Link>
-                 </AnimatedSection>
-               </div>
-             </div>
-           </section>
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <AnimatedSection>
+              <h2 className="text-2xl lg:text-3xl font-black text-white max-w-lg">
+                Get personalized support for your business requirements.
+              </h2>
+              <p className="text-gray-400 mt-3">This structure aligns every section with your actual services and will look much more professional and trustworthy than generic HR software content.</p>
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
+              <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-gray-900 transition-colors whitespace-nowrap">
+                GET IN TOUCH <ArrowRight size={16} />
+              </Link>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -189,7 +189,7 @@ function ServiceCategory({ eyebrow, heading, subheading, services }) {
   return (
     <div className="mb-20 last:mb-0">
       <AnimatedSection className="text-center mb-12">
-        <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">{eyebrow}</p>
+        <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">{eyebrow}</p>
         <h2 className="text-3xl lg:text-4xl font-black text-gray-900">{heading}</h2>
         <p className="text-gray-500 mt-4 max-w-xl mx-auto">{subheading}</p>
       </AnimatedSection>
@@ -239,11 +239,11 @@ export default function Solutions() {
       <div className="bg-white border-b py-14 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between">
           <div>
-            <h1 className="text-4xl font-black text-gray-900">Service</h1>
+            <h1 className="text-4xl font-black text-gray-900">Services</h1>
             <p className="text-sm text-gray-500 mt-2">
               <span className="hover:text-violet-500 cursor-pointer">HOME</span>
               <span className="mx-2">»</span>
-              <span>SERVICE</span>
+              <span>SERVICES</span>
             </p>
           </div>
           <p className="text-gray-600 max-w-xs mt-4 sm:mt-0 text-right">
@@ -258,7 +258,7 @@ export default function Solutions() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Our Service</p>
+            <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Our Service</p>
             <h2 className="text-3xl lg:text-4xl font-black text-gray-900">
               Complete Business Support Services for <br />Modern Organizations
             </h2>
@@ -302,7 +302,7 @@ export default function Solutions() {
               />
             </AnimatedSection>
             <AnimatedSection delay={150}>
-              <p className="font-semibold text-sm uppercase tracking-wider mb-3 text-gray-800">Testimonials</p>
+              <p className="font-semibold text-3xl uppercase tracking-wider mb-3 text-gray-800">Testimonials</p>
               <h2 className="text-4xl font-black text-gray-900 mb-8">Trusted by Businesses Across Industries</h2>
               <blockquote className="bg-white rounded-2xl p-8 shadow-xl">
                 <p className="text-gray-700 italic text-lg leading-relaxed mb-6">

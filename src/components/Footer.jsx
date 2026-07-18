@@ -48,13 +48,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Solutions */}
+          {/* Services */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Solutions</h4>
+            <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Services</h4>
             <ul className="space-y-3 text-sm">
               {['Talent Recruitment', 'Payroll & Benefits', 'Team Training', 'Culture Consulting', 'HR Outsourcing'].map((item) => (
                 <li key={item}>
-                  <Link to="/solutions" className="hover:text-violet-400 transition-colors">{item}</Link>
+                  <Link to="/services" className="hover:text-violet-400 transition-colors">{item}</Link>
                 </li>
               ))}
             </ul>
@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               {[
                 { label: 'About Us', to: '/about' },
-                { label: 'Services', to: '/solutions' },
+                { label: 'Services', to: '/services' },
                 { label: 'Terms & Conditions', to: '/terms-conditions' },
                 { label: 'Privacy Policy', to: '/privacy-policy' },
                 { label: 'FAQs', to: '/faqs' },

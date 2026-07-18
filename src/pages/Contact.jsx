@@ -94,7 +94,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Left Info */}
             <AnimatedSection>
-              <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get In Touch</p>
+              <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Get In Touch</p>
               <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-6">
                 Let's start a conversation about your HR needs
               </h2>

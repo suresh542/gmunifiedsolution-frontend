@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Solutions from './pages/Solutions';
+import Services from './pages/Solutions';
 import FAQs from './pages/FAQs';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

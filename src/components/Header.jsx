@@ -47,7 +47,7 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-8">
             <NavLink to="/" className={navLinkClass} end>HOME</NavLink>
             <NavLink to="/about" className={navLinkClass}>ABOUT US</NavLink>
-            <NavLink to="/solutions" className={navLinkClass}>SERVICES</NavLink>
+            <NavLink to="/services" className={navLinkClass}>SERVICES</NavLink>
             <NavLink to="/faqs" className={navLinkClass}>FAQS</NavLink>
           <NavLink to="/contact" className={navLinkClass}>CONTACT US</NavLink> 
           </nav>
@@ -100,7 +100,7 @@ export default function Header() {
           <div className="px-4 py-4 flex flex-col gap-4">
             <NavLink to="/" className={navLinkClass} end>HOME</NavLink>
             <NavLink to="/about" className={navLinkClass}>ABOUT US</NavLink>
-            <NavLink to="/solutions" className={navLinkClass}>SOLUTIONS</NavLink>
+            <NavLink to="/services" className={navLinkClass}>SERVICES</NavLink>
             <NavLink to="/faqs" className={navLinkClass}>FAQS</NavLink>
             <NavLink to="/contact" className={navLinkClass}>CONTACT US</NavLink>
             <div className="border-t pt-3">

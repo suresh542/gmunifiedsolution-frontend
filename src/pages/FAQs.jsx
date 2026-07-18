@@ -96,7 +96,7 @@ export default function FAQs() {
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <AnimatedSection>
-                <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
+                <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">FAQ</p>
                 <h2 className="text-3xl font-black text-gray-900 mb-3">Popular questions</h2>
                 <p className="text-gray-500 mb-8">Inventore veritatis et architecto beatae vitae dicta sunt explicabo.</p>
                 <div className="space-y-3">
@@ -174,7 +174,7 @@ export default function FAQs() {
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Sed ut unde omnis iste natus sit volur tatem accusantium laudantium totam rem aperiam eaque ipsa ab illo inventore veritatis et architecto beatae vitae dicta sunt explicabo.
               </p>
-              <div className="bg-gray-900 text-white rounded-2xl p-4 inline-flex items-center gap-4">
+              {/* <div className="bg-gray-900 text-white rounded-2xl p-4 inline-flex items-center gap-4">
                 <div className="w-10 h-10 bg-violet-400 rounded-full flex items-center justify-center">
                   <span className="text-black text-lg">📞</span>
                 </div>
@@ -182,7 +182,7 @@ export default function FAQs() {
                   <p className="text-xs text-gray-400">CALL US NOW</p>
                   <p className="font-bold">(555) 123-4567</p>
                 </div>
-              </div>
+              </div> */}
             </AnimatedSection>
 
             <AnimatedSection delay={150}>

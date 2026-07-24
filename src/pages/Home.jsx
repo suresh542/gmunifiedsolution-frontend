@@ -249,7 +249,7 @@ export default function Home() {
                 {[
                   {
                     title: "How We Work",
-                    desc: "Tailored HR, payroll, and compliance solutions for your business."
+                    desc: "Factory Setup, Regulatory Approvals, Labour Compliance & Payroll Services Under One Roof."
                   },
                   {
                     title: "How We Lead",

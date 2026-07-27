@@ -7,95 +7,91 @@ import ServiceImg1 from '../assets/ServiceImg1.png'; // Adjust the path to your 
 // Services for small & growing businesses (offices, startups, service companies)
 const smallBusinessServices = [
   {
-    icon: '🏢',
-    title: 'Shop & Establishment Registration and Renewals',
-    desc: 'Complete registration and timely renewal support under the Shops & Establishment Act, ensuring your business operates on a fully compliant legal footing from day one.',
-    featured: false,
-  },
-  {
-    icon: '💵',
-    title: 'Payroll Processing Services',
-    desc: 'Accurate, on-time payroll processing including salary computation, statutory deductions, payslip generation, and full & final settlements.',
-    featured: false,
-  },
-  {
-    icon: '📑',
-    title: 'Statutory Compliance Services',
-    desc: 'EPF, ESI, PT & LWF — end-to-end monthly, half-yearly and annual return filing, so you never miss a statutory deadline.',
-    featured: false,
-  },
-  {
-    icon: '🧾',
-    title: 'GST Registration, Returns & Compliance',
-    desc: 'New GST registration, monthly/quarterly return filing, annual returns, and reconciliation — handled accurately and on schedule.',
-    featured: false,
-  },
-  {
-    icon: '🪪',
-    title: 'Trade License Registration and Renewals',
-    desc: 'Hassle-free trade license registration and renewal support to keep your business legally authorized to operate.',
-    featured: false,
-  },
-  {
-    icon: '🔍',
-    title: 'HR Audit Services',
-    desc: 'Independent audit of your HR policies, payroll records, and statutory compliance to identify and close gaps before they become penalties.',
-    featured: false,
-  },
-  {
-    icon: '📁',
-    title: 'HR Documentation',
-    desc: 'Professionally drafted offer letters, appointment letters, HR policies, employee handbooks, and compliance-ready documentation.',
-    featured: false,
-  },
-];
-
-// Services for industrial & manufacturing companies (plants, factories, units)
-const industrialServices = [
-  {
     icon: '🏭',
     title: 'Factory License Registration and Renewals',
     desc: 'End-to-end factory license registration and renewal support under the Factories Act, ensuring uninterrupted, compliant plant operations.',
-    featured: false,
+    bgColor: 'bg-blue-50',
   },
   {
     icon: '👷',
     title: 'Contract Labour License Registration and Renewals',
     desc: 'Registration and renewal of contract labour licenses under the CLRA Act for both principal employers and contractors.',
-    featured: false,
+    bgColor: 'bg-green-50',
   },
   {
     icon: '♻️',
     title: 'Pollution Control Board Registration and Renewals',
     desc: 'Consent to Establish/Operate and other Pollution Control Board registrations and renewals, managed end-to-end.',
-    featured: false,
+    bgColor: 'bg-emerald-50',
   },
-
   {
     icon: '🔥',
     title: 'Fire License Registration and Renewals',
     desc: 'Fire safety license registration and renewal coordination to keep your facility compliant and audit-ready.',
-    featured: false,
+    bgColor: 'bg-red-50',
   },
   {
     icon: '🍽️',
     title: 'Food License Registration and Renewals',
     desc: 'FSSAI food license registration and renewal support for manufacturing units and facilities with food handling operations.',
-    featured: false,
+    bgColor: 'bg-orange-50',
   },
   {
     icon: '👥',
     title: 'Staffing Solutions',
-    desc: 'Temporary, contract, and bulk workforce deployment for plants and industrial units — charges starting from 5% of annual CTC.',
-    featured: false,
+    desc: 'Temporary, contract, and bulk workforce deployment for plants and industrial units.',
+    bgColor: 'bg-cyan-50',
   },
   {
     icon: '🎓',
     title: 'Apprenticeship Act Process – NAPS & NATS',
-    desc: 'End-to-end apprentice registration and compliance under NAPS & NATS, including onboarding, stipend reimbursement claims, and reporting.',
-    featured: false,
+    desc: 'End-to-end apprentice registration and compliance under NAPS & NATS.',
+    bgColor: 'bg-indigo-50',
+  },
+  {
+    icon: '🏢',
+    title: 'Shop & Establishment Registration and Renewals',
+    desc: 'Complete registration and timely renewal support under the Shops & Establishment Act.',
+    bgColor: 'bg-violet-50',
+  },
+  {
+    icon: '💵',
+    title: 'Payroll Processing Services',
+    desc: 'Accurate, on-time payroll processing including salary computation and statutory deductions.',
+    bgColor: 'bg-lime-50',
+  },
+  {
+    icon: '📑',
+    title: 'Statutory Compliance Services',
+    desc: 'EPF, ESI, PT & LWF filings and compliance management.',
+    bgColor: 'bg-yellow-50',
+  },
+  {
+    icon: '🧾',
+    title: 'GST Registration, Returns & Compliance',
+    desc: 'GST registration, return filing, annual returns, and reconciliation.',
+    bgColor: 'bg-pink-50',
+  },
+  {
+    icon: '🪪',
+    title: 'Trade License Registration and Renewals',
+    desc: 'Hassle-free trade license registration and renewal support.',
+    bgColor: 'bg-sky-50',
+  },
+  {
+    icon: '🔍',
+    title: 'HR Audit Services',
+    desc: 'Independent audit of HR policies, payroll records, and statutory compliance.',
+    bgColor: 'bg-purple-50',
+  },
+  {
+    icon: '📁',
+    title: 'HR Documentation',
+    desc: 'Professionally drafted offer letters, HR policies, and employee handbooks.',
+    bgColor: 'bg-rose-50',
   },
 ];
+// Services for industrial & manufacturing companies (plants, factories, units)
 
 const faqLinks = [
   {
@@ -191,13 +187,13 @@ function BigCard({ s, i }) {
     <AnimatedSection delay={i * 100}>
       <div
         className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-lg ${s.featured
-          ? 'bg-gray-900 text-white border-gray-900 scale-105'
+          ? `${s.bgColor} text-white border-gray-900 scale-105`
           : 'bg-white border-gray-200'
           }`}
       >
         <div className="text-4xl mb-5">{s.icon}</div>
-        <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-white' : 'text-gray-900'}`}>{s.title}</h3>
-        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-gray-300' : 'text-gray-500'}`}>{s.desc}</p>
+        <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-black' : 'text-gray-900'}`}>{s.title}</h3>
+        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-violet-500' : 'text-gray-500'}`}>{s.desc}</p>
         <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
           READ MORE <ChevronRight size={14} />
         </button>
@@ -212,7 +208,7 @@ function SmallCard({ s, i }) {
     <AnimatedSection delay={i * 80}>
       <div
         className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-lg ${s.featured
-          ? 'bg-gray-900 text-white border-gray-900 scale-105'
+          ? `${s.bgColor} text-white border-gray-900 scale-105`
           : 'bg-white border-gray-200'
           }`}
       >
@@ -256,7 +252,7 @@ function ServiceCategory({ eyebrow, heading, subheading, services }) {
       <AnimatedSection className="text-center mb-12">
         <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">{eyebrow}</p>
         <h2 className="text-3xl lg:text-4xl font-black text-gray-900">{heading}</h2>
-        <p className="text-gray-500 mt-4 max-w-xl mx-auto">{subheading}</p>
+        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">{subheading}</p>
       </AnimatedSection>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-6">
@@ -350,18 +346,12 @@ export default function Solutions() {
           </AnimatedSection>
 
           <ServiceCategory
-            eyebrow="For Small & Growing Businesses"
-            heading="Solutions for Offices & Service Companies"
-            subheading="Core HR, payroll, and statutory compliance services built for startups, offices, and small to mid-size businesses."
+            eyebrow="Pan India Business Compliance Solutions for Offices"
+            heading="Factories & Service Companies"
+            subheading="Complete support for Factory Plan Approval, Factory Licence, Fire NOC, Pollution Control Board Approvals, Labour Compliance, and Statutory Registrations."
             services={smallBusinessServices}
           />
 
-          <ServiceCategory
-            eyebrow="For Industrial Companies"
-            heading="Solutions for Factories & Manufacturing Units"
-            subheading="Licensing, staffing, and compliance services designed for plants, factories, and industrial establishments."
-            services={industrialServices}
-          />
         </div>
       </section>
 

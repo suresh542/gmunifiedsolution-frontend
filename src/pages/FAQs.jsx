@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, ChevronRight, ArrowRight } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
+import FAQImage1 from '../assets/FaqImg1.png';
+import FAQImage2 from '../assets/FaqImg2.png';
 
 const faqs = [
   { q: 'What services does GM Unified Solution provide?', a: 'We provide recruitment, payroll management, PF and ESI/NPS administration, GST registration and returns, establishment registration and renewals, monthly and annual compliance filings, and staffing solutions — all under one roof.' },
@@ -15,10 +17,11 @@ const faqs = [
 ];
 
 const faqLinks = [
+
   {
-    title: 'Payroll & Compliance',
-    desc: 'Learn how we manage payroll processing, statutory deductions, PF, ESI, and labour law compliance.',
-    action: 'EXPLORE SERVICES',
+    title: 'Factory Licence',
+    desc: 'Factory licence registration, Our compliance, HR experts and renewal assistance.',
+    action: 'VIEW DETAILS',
   },
   {
     title: 'GST & Registration',
@@ -31,9 +34,9 @@ const faqLinks = [
     action: 'LEARN MORE',
   },
   {
-    title: 'Contact Our Experts',
-    desc: 'Need personalized assistance? Our compliance and HR experts are ready to help your business.',
-    action: 'GET IN TOUCH',
+    title: 'Payroll & Compliance',
+    desc: 'Learn how we manage payroll processing, statutory deductions, PF, ESI, and labour law compliance.',
+    action: 'EXPLORE SERVICES',
   },
 ];
 
@@ -96,9 +99,9 @@ export default function FAQs() {
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <AnimatedSection>
-                <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">FAQ</p>
+                {/* <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">FAQ</p> */}
                 <h2 className="text-3xl font-black text-gray-900 mb-3">Popular questions</h2>
-                <p className="text-gray-500 mb-8">Inventore veritatis et architecto beatae vitae dicta sunt explicabo.</p>
+                <p className="text-gray-500 mb-8">Your new subtitle or description goes here.</p>
                 <div className="space-y-3">
                   {faqs.map((item, i) => (
                     <AccordionItem
@@ -115,19 +118,14 @@ export default function FAQs() {
 
             <AnimatedSection delay={150} className="space-y-10 flex flex-col items-center ">
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80"
+                src={FAQImage1}
                 alt="Team meeting"
-                className="rounded-2xl w-full h-60 object-cover"
+                className="rounded-2xl w-full h-80 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+                src={FAQImage2}
                 alt="Discussion"
-                className="rounded-2xl w-full h-60 object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80"
-                alt="Collaboration"
-                className="rounded-2xl w-full h-60 object-cover"
+                className="rounded-2xl w-full h-80 object-cover"
               />
             </AnimatedSection>
           </div>
@@ -231,22 +229,22 @@ export default function FAQs() {
 
       {/* Bottom CTA */}
       <section className="py-16 bg-gray-900">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-                  <AnimatedSection>
-                    <h2 className="text-2xl lg:text-3xl font-black text-white max-w-lg">
-                      Get personalized support for your business requirements.
-                    </h2>
-                    <p className="text-gray-400 mt-3">This structure aligns every section with your actual services and will look much more professional and trustworthy than generic HR software content.</p>
-                  </AnimatedSection>
-                  <AnimatedSection delay={100}>
-                    <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-gray-900 transition-colors whitespace-nowrap">
-                      GET IN TOUCH <ArrowRight size={16} />
-                    </Link>
-                  </AnimatedSection>
-                </div>
-              </div>
-            </section>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <AnimatedSection>
+              <h2 className="text-2xl lg:text-3xl font-black text-white max-w-lg">
+                Get personalized support for your business requirements.
+              </h2>
+              <p className="text-gray-400 mt-3">This structure aligns every section with your actual services and will look much more professional and trustworthy than generic HR software content.</p>
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
+              <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-gray-900 transition-colors whitespace-nowrap">
+                GET IN TOUCH <ArrowRight size={16} />
+              </Link>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

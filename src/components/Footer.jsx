@@ -114,7 +114,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-center text-sm text-gray-500">
-          Copyright © 2026 GM | Developed by Suresh Kumar R, Freelancer
+          Copyright © 2026 GM UNIFIED SOLUTIONS | Developed by Suresh Kumar R, Freelancer
         </div>
       </div>
     </footer>

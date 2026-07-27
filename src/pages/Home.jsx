@@ -8,31 +8,41 @@ import { useEffect, useState } from 'react';
 
 
 const services = [
+    {
+    icon: '🏭',
+    title: 'Factory License Registration and Renewals',
+    desc: 'End-to-end factory license registration and renewal support under the Factories Act, ensuring uninterrupted, compliant plant operations.',
+    bgColor: 'bg-blue-100',
+  },
   {
-    icon: '📋',
-    title: 'Talent Recruitment',
-    desc: 'Find the right talent with our recruitment and staffing solutions. We support permanent hiring, contract staffing, and workforce deployment across industries.',
+    icon: '👷',
+    title: 'Contract Labour License Registration and Renewals',
+    desc: 'Registration and renewal of contract labour licenses under the CLRA Act for both principal employers and contractors.',
+    bgColor: 'bg-green-100',
   },
   {
     icon: '💰',
     title: 'Payroll & Benefits',
     desc: 'Simplify payroll processing with accurate salary calculations, statutory deductions, payslip generation, and employee record management.',
-    featured: true,
+    bgColor: 'bg-sky-200',
+  },
+    {
+    icon: '🧾',
+    title: 'GST Registration, Returns & Compliance',
+    desc: 'GST registration, return filing, annual returns, and reconciliation.',
+    bgColor: 'bg-teal-100',
   },
   {
     icon: '🎓',
     title: 'Team Training',
     desc: 'Enhance your team’s skills with our comprehensive training programs designed to drive performance and development.',
-  },
-  {
-    icon: '🤝',
-    title: 'Culture Consulting',
-    desc: 'Improve your organizational culture with our expert consulting services tailored to your unique needs.',
+    bgColor: 'bg-violet-100',
   },
   {
     icon: '🌐',
     title: 'HR Outsourcing',
     desc: 'Outsource your HR functions with our comprehensive solutions, allowing you to focus on core business activities.',
+    bgColor: 'bg-pink-100',
   },
 ];
 
@@ -377,11 +387,11 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <AnimatedSection key={i} delay={i * 80}>
-                <div className={`p-7 rounded-2xl border h-full transition-shadow hover:shadow-lg ${s.featured ? 'bg-gray-900 text-white border-gray-900' : 'bg-white border-gray-200'}`}>
+                <div className={`p-7 rounded-2xl border h-full transition-shadow hover:shadow-xl ${s.bgColor}`}>
                   <div className="text-3xl mb-4">{s.icon}</div>
-                  <h3 className={`font-bold text-lg mb-3 ${s.featured ? 'text-white' : 'text-gray-900'}`}>{s.title}</h3>
-                  <p className={`text-sm leading-relaxed mb-4 ${s.featured ? 'text-gray-300' : 'text-gray-500'}`}>{s.desc}</p>
-                  <Link to="/services" className={`inline-flex items-center gap-1 text-sm font-semibold ${s.featured ? 'text-violet-400' : 'text-violet-500'} hover:underline`}>
+                  <h3 className={`font-bold text-lg mb-3 text-gray-900}`}>{s.title}</h3>
+                  <p className={`text-sm leading-relaxed mb-4 text-gray-500`}>{s.desc}</p>
+                  <Link to="/services" className={`inline-flex items-center gap-1 text-sm font-semibold text-violet-500' hover:underline`}>
                     READ MORE <ChevronRight size={14} />
                   </Link>
                 </div>

@@ -5,13 +5,31 @@ import AnimatedSection from '../components/AnimatedSection';
 
 
 export default function TermsConditions() {
-    const [openIdx, setOpenIdx] = useState(null);
+     const [openIdx, setOpenIdx] = useState(null);
     const [form, setForm] = useState({ email: '', name: '', message: '' });
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setLoading(true);
+            try {
+            const res = await fetch('https://gm-unified-solutions-backend.vercel.app/api/quote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            });
+
+            if (!res.ok) throw new Error('Failed to submit quote');
+
+            setSubmitted(true);
+            setForm({ email: '', name: '', message: '' });
+        } catch (err) {
+            console.error(err);
+            alert('Submission failed. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
     return (
         <div className="pt-20 bg-slate-50 text-slate-900">
@@ -114,71 +132,67 @@ export default function TermsConditions() {
                     </div>
                 </div>
                 <section className="py-20 bg-white mt-20 rounded-3xl shadow-lg">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="border border-gray-200 rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-violet-200" />
-                            <AnimatedSection>
-                                <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get A Quote</p>
-                                <h2 className="text-3xl font-black text-gray-900 mb-4">
-                                    Get custom pricing tailored to your needs
-                                </h2>
-                                <p className="text-gray-600 mb-8 leading-relaxed">
-                                    Sed ut unde omnis iste natus sit volur tatem accusantium laudantium totam rem aperiam eaque ipsa ab illo inventore veritatis et architecto beatae vitae dicta sunt explicabo.
-                                </p>
-                                <div className="bg-gray-900 text-white rounded-2xl p-4 inline-flex items-center gap-4">
-                                    <div className="w-10 h-10 bg-violet-400 rounded-full flex items-center justify-center">
-                                        <span className="text-black text-lg">📞</span>
-                                    </div>
-                                    <div>
-                                        <p className="text-xs text-gray-400">CALL US NOW</p>
-                                        <p className="font-bold">(555) 123-4567</p>
-                                    </div>
-                                </div>
-                            </AnimatedSection>
-
-                            <AnimatedSection delay={150}>
-                                {submitted ? (
-                                    <div className="text-center py-12">
-                                        <div className="text-5xl mb-4">✅</div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
-                                        <p className="text-gray-500">We will get back to you within 24 hours.</p>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-4">
-                                        <input
-                                            type="email"
-                                            required
-                                            placeholder="Business Email"
-                                            value={form.email}
-                                            onChange={e => setForm({ ...form, email: e.target.value })}
-                                            className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                        />
-                                        <input
-                                            type="text"
-                                            required
-                                            placeholder="Full Name"
-                                            value={form.name}
-                                            onChange={e => setForm({ ...form, name: e.target.value })}
-                                            className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                        />
-                                        <textarea
-                                            required
-                                            placeholder="Share why you are contacting"
-                                            rows={4}
-                                            value={form.message}
-                                            onChange={e => setForm({ ...form, message: e.target.value })}
-                                            className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
-                                        />
-                                        <button type="submit" className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors">
-                                            GET A QUOTE
-                                        </button>
-                                        <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
-                                    </form>
-                                )}
-                            </AnimatedSection>
-                        </div>
-                    </div>
-                </section>
+                                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                       <div className="border border-gray-200 rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
+                                           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-violet-200" />
+                                           <AnimatedSection>
+                                               <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get A Quote</p>
+                                               <h2 className="text-3xl font-black text-gray-900 mb-4">
+                                                   Customized HR, Payroll & Compliance Solutions for Your Business
+                                               </h2>
+                                               <p className="text-gray-600 mb-8 leading-relaxed">
+                                                   From payroll processing and statutory compliance to GST filing and staffing
+                                                   services, GM Unified Solution delivers reliable, cost-effective support for
+                                                   businesses of all sizes. Get a customized quote tailored to your needs.                       </p>
+                                           </AnimatedSection>
+               
+                                           <AnimatedSection delay={150}>
+                                               {submitted ? (
+                                                   <div className="text-center py-12">
+                                                       <div className="text-5xl mb-4">✅</div>
+                                                       <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
+                                                       <p className="text-gray-500">We will get back to you within 24 hours.</p>
+                                                   </div>
+                                               ) : (
+                                                   <form onSubmit={handleSubmit} className="space-y-4">
+                                                       <input
+                                                           type="email"
+                                                           required
+                                                           placeholder="Business Email"
+                                                           value={form.email}
+                                                           onChange={e => setForm({ ...form, email: e.target.value })}
+                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                                                       />
+                                                       <input
+                                                           type="text"
+                                                           required
+                                                           placeholder="Full Name"
+                                                           value={form.name}
+                                                           onChange={e => setForm({ ...form, name: e.target.value })}
+                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                                                       />
+                                                       <textarea
+                                                           required
+                                                           placeholder="Share why you are contacting"
+                                                           rows={4}
+                                                           value={form.message}
+                                                           onChange={e => setForm({ ...form, message: e.target.value })}
+                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
+                                                       />
+                                                       <button
+                                                           type="submit"
+                                                           disabled={loading}
+                                                           className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                                                       >
+                                                           {loading ? 'Sending...' : 'GET A QUOTE'}
+                                                       </button>
+                                                       <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
+                                                   </form>
+                                               )}
+                                           </AnimatedSection>
+                                       </div>
+                                   </div>
+                               </section>
             </div>
         </div>
     );

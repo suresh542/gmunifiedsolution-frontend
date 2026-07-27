@@ -56,7 +56,7 @@ export default function Contact() {
             </p>
           </div>
           <p className="text-gray-600 max-w-xs mt-4 sm:mt-0 text-right">
-            Get in touch with our team — we're here to help.
+            Get the right compliance solutions for your business today.
           </p>
         </div>
         <div className="max-w-7xl mx-auto mt-6">
@@ -65,8 +65,15 @@ export default function Contact() {
       </div>
 
       {/* Contact Info Cards */}
+       <AnimatedSection>
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <h1 className="text-5xl lg:text-6xl sm:text-3xl font-black text-gray-900 mb-3">Get In Touch</h1>
+            <p className="text-gray-600 max-w-2xl text-center mx-auto">
+              Connect with our experts for reliable factory compliance support.
+            </p>
+          </div>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               { icon: <FaWhatsapp size={24} />, title: 'Call Us', info: '+91 9500499538', sub: 'Mon-Fri, 9AM–6PM EST' },
@@ -87,6 +94,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Contact Form */}
       <section className="py-20 bg-white">

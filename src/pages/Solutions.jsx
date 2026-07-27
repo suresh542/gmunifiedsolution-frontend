@@ -10,112 +10,131 @@ const smallBusinessServices = [
     icon: '🏭',
     title: 'Factory License Registration and Renewals',
     desc: 'End-to-end factory license registration and renewal support under the Factories Act, ensuring uninterrupted, compliant plant operations.',
-    bgColor: 'bg-blue-50',
+    bgColor: 'bg-blue-100',
   },
   {
     icon: '👷',
     title: 'Contract Labour License Registration and Renewals',
     desc: 'Registration and renewal of contract labour licenses under the CLRA Act for both principal employers and contractors.',
-    bgColor: 'bg-green-50',
+    bgColor: 'bg-green-100',
   },
   {
     icon: '♻️',
     title: 'Pollution Control Board Registration and Renewals',
     desc: 'Consent to Establish/Operate and other Pollution Control Board registrations and renewals, managed end-to-end.',
-    bgColor: 'bg-emerald-50',
+    bgColor: 'bg-emerald-100',
   },
   {
     icon: '🔥',
     title: 'Fire License Registration and Renewals',
     desc: 'Fire safety license registration and renewal coordination to keep your facility compliant and audit-ready.',
-    bgColor: 'bg-red-50',
+    bgColor: 'bg-red-100',
   },
   {
     icon: '🍽️',
     title: 'Food License Registration and Renewals',
     desc: 'FSSAI food license registration and renewal support for manufacturing units and facilities with food handling operations.',
-    bgColor: 'bg-orange-50',
+    bgColor: 'bg-orange-100',
   },
   {
     icon: '👥',
     title: 'Staffing Solutions',
     desc: 'Temporary, contract, and bulk workforce deployment for plants and industrial units.',
-    bgColor: 'bg-cyan-50',
+    bgColor: 'bg-cyan-100',
   },
   {
     icon: '🎓',
     title: 'Apprenticeship Act Process – NAPS & NATS',
     desc: 'End-to-end apprentice registration and compliance under NAPS & NATS.',
-    bgColor: 'bg-indigo-50',
+    bgColor: 'bg-indigo-100',
   },
   {
     icon: '🏢',
     title: 'Shop & Establishment Registration and Renewals',
     desc: 'Complete registration and timely renewal support under the Shops & Establishment Act.',
-    bgColor: 'bg-violet-50',
+    bgColor: 'bg-violet-100',
   },
   {
     icon: '💵',
     title: 'Payroll Processing Services',
     desc: 'Accurate, on-time payroll processing including salary computation and statutory deductions.',
-    bgColor: 'bg-lime-50',
+    bgColor: 'bg-lime-100',
   },
   {
     icon: '📑',
     title: 'Statutory Compliance Services',
     desc: 'EPF, ESI, PT & LWF filings and compliance management.',
-    bgColor: 'bg-yellow-50',
+    bgColor: 'bg-yellow-100',
   },
   {
     icon: '🧾',
     title: 'GST Registration, Returns & Compliance',
     desc: 'GST registration, return filing, annual returns, and reconciliation.',
-    bgColor: 'bg-pink-50',
+    bgColor: 'bg-pink-100',
   },
   {
     icon: '🪪',
     title: 'Trade License Registration and Renewals',
     desc: 'Hassle-free trade license registration and renewal support.',
-    bgColor: 'bg-sky-50',
+    bgColor: 'bg-sky-100',
   },
   {
     icon: '🔍',
     title: 'HR Audit Services',
     desc: 'Independent audit of HR policies, payroll records, and statutory compliance.',
-    bgColor: 'bg-purple-50',
+    bgColor: 'bg-purple-100',
   },
   {
     icon: '📁',
     title: 'HR Documentation',
     desc: 'Professionally drafted offer letters, HR policies, and employee handbooks.',
-    bgColor: 'bg-rose-50',
+    bgColor: 'bg-rose-100',
   },
 ];
 // Services for industrial & manufacturing companies (plants, factories, units)
 
 const faqLinks = [
   {
-    title: 'Payroll & Compliance',
-    desc: 'Learn how we manage payroll processing, statutory deductions, PF, ESI, and labour law compliance.',
-    action: 'EXPLORE SERVICES',
+    title: 'Factory Plan Approval',
+    desc: 'Approval support for factory setup and expansion projects.',
+    action: 'EXPLORE SERVICE',
   },
   {
-    title: 'GST & Registration',
-    desc: 'Get answers about GST registration, return filing, business registrations, and renewals.',
+    title: 'Factory Licence',
+    desc: 'Factory licence registration and renewal assistance.',
     action: 'VIEW DETAILS',
   },
   {
-    title: 'Staffing Solutions',
-    desc: 'Discover our recruitment, contract staffing, workforce management, and hiring support services.',
+    title: 'Pressure Vessel Testing Certificate',
+    desc: 'Certification services for pressure vessels and equipment.',
     action: 'LEARN MORE',
   },
   {
-    title: 'Contact Our Experts',
-    desc: 'Need personalized assistance? Our compliance and HR experts are ready to help your business.',
+    title: 'ISM Contract Labour Registration',
+    desc: 'Contract labour registration and compliance support.',
+    action: 'GET STARTED',
+  },
+  {
+    title: 'Fire NOC & Fire Licence',
+    desc: 'Fire NOC and licence approval assistance.',
+    action: 'EXPLORE SERVICE',
+  },
+  {
+    title: 'Pollution Control Board',
+    desc: 'CTE and CTO approval services from PCB authorities.',
+    action: 'VIEW DETAILS',
+  },
+  {
+    title: 'Trade Licence',
+    desc: 'Quick trade licence registration and renewal support.',
+    action: 'LEARN MORE',
+  },
+  {
+    title: 'Calibration Certificate',
+    desc: 'Calibration certification for industrial instruments.',
     action: 'GET IN TOUCH',
   },
 ];
-
 
 const testimonials = [
   {
@@ -186,14 +205,14 @@ function BigCard({ s, i }) {
   return (
     <AnimatedSection delay={i * 100}>
       <div
-        className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-lg ${s.featured
-          ? `${s.bgColor} text-white border-gray-900 scale-105`
+        className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-xl ${s.featured
+          ? `${s.bgColor} text-white border-gray-900 scale-105 shadow-xl`
           : 'bg-white border-gray-200'
           }`}
       >
         <div className="text-4xl mb-5">{s.icon}</div>
         <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-black' : 'text-gray-900'}`}>{s.title}</h3>
-        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-violet-500' : 'text-gray-500'}`}>{s.desc}</p>
+        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
         <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
           READ MORE <ChevronRight size={14} />
         </button>
@@ -207,14 +226,14 @@ function SmallCard({ s, i }) {
   return (
     <AnimatedSection delay={i * 80}>
       <div
-        className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-lg ${s.featured
-          ? `${s.bgColor} text-white border-gray-900 scale-105`
+        className={`p-8 rounded-2xl border h-full transition-all duration-500 hover:shadow-xl ${s.featured
+          ? `${s.bgColor} text-white border-gray-900 scale-105 shadow-xl`
           : 'bg-white border-gray-200'
           }`}
       >
-        <div className="text-3xl mb-4">{s.icon}</div>
-        <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-white' : 'text-gray-900'}`}>{s.title}</h3>
-        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-gray-300' : 'text-gray-500'}`}>{s.desc}</p>
+        <div className="text-4xl mb-5">{s.icon}</div>
+        <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-black' : 'text-gray-900'}`}>{s.title}</h3>
+        <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
         <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
           READ MORE <ChevronRight size={14} />
         </button>

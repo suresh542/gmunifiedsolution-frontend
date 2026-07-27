@@ -4,8 +4,8 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import headerLogo from '../assets/GM-logo.png'; // Adjust the path to your logo image
 
 const usefulPages = [
-  { label: 'Case Studies', to: '/case-studies' },
-  { label: 'Blogs', to: '/blogs' },
+  // { label: 'Case Studies', to: '/case-studies' },
+  // { label: 'Blogs', to: '/blogs' },
   { label: 'Privacy Policy', to: '/privacy-policy' },
   { label: 'Terms of Service', to: '/terms-conditions' },
 ];
@@ -28,8 +28,7 @@ export default function Header() {
   }, []);
 
   const navLinkClass = ({ isActive }) =>
-    `text-sm font-medium transition-colors duration-200 ${
-      isActive ? 'text-violet-600' : 'text-gray-800 hover:text-violet-600'
+    `text-sm font-medium transition-colors duration-200 ${isActive ? 'text-violet-600' : 'text-gray-800 hover:text-violet-600'
     }`;
 
   return (
@@ -38,9 +37,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-           
-             <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
-            <span className="font-black text-xl text-gray-900 tracking-tight">GM <span>UNIFIED SOLUTION</span> <br /> <span className='text-sm font-'>   One Step Compliance Partner</span></span>
+
+            <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
+            <div className="text-center">
+              <div>
+                <span className="font-black text-xl text-gray-900 tracking-tight text-center hidden lg:flex">GM  <span> UNIFIED SOLUTION</span></span>
+              </div>
+             <div className="hidden lg:flex justify-center items-center text-sm font-semibold text-center">
+                <span >   One Step Compliance Partner</span>
+              </div>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -49,7 +55,7 @@ export default function Header() {
             <NavLink to="/about" className={navLinkClass}>ABOUT US</NavLink>
             <NavLink to="/services" className={navLinkClass}>SERVICES</NavLink>
             <NavLink to="/faqs" className={navLinkClass}>FAQS</NavLink>
-          <NavLink to="/contact" className={navLinkClass}>CONTACT US</NavLink> 
+            <NavLink to="/contact" className={navLinkClass}>CONTACT US</NavLink>
           </nav>
 
           {/* Desktop Right */}
@@ -60,7 +66,7 @@ export default function Header() {
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center gap-1 text-sm font-medium text-gray-800 hover:text-violet-500 transition-colors border border-gray-200 rounded-full px-4 py-2"
               >
-               More <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+                More <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 z-50">

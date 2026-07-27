@@ -5,32 +5,7 @@ import AnimatedSection from '../components/AnimatedSection';
 
 
 export default function TermsConditions() {
-     const [openIdx, setOpenIdx] = useState(null);
-    const [form, setForm] = useState({ email: '', name: '', message: '' });
-    const [submitted, setSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-            try {
-            const res = await fetch('https://gm-unified-solutions-backend.vercel.app/api/quote', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form),
-            });
-
-            if (!res.ok) throw new Error('Failed to submit quote');
-
-            setSubmitted(true);
-            setForm({ email: '', name: '', message: '' });
-        } catch (err) {
-            console.error(err);
-            alert('Submission failed. Please try again.');
-        } finally {
-            setLoading(false);
-        }
-    };
     return (
         <div className="pt-20 bg-slate-50 text-slate-900">
             <div className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -83,7 +58,7 @@ export default function TermsConditions() {
                         <p>All content on the Site, including text, graphics, logos, and design, is the property of GM Unified Solutions and may not be reproduced or used without prior written consent.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">6. Limitation of Liability</h2>
                     </div>
@@ -91,7 +66,7 @@ export default function TermsConditions() {
                         <p>While the Company exercises due diligence in delivering statutory and compliance services, it shall not be liable for penalties, losses, or damages arising from inaccurate or incomplete information provided by the client, delays caused by government authorities, or changes in applicable law beyond the Company's control.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">7. Indemnification</h2>
                     </div>
@@ -99,7 +74,7 @@ export default function TermsConditions() {
                         <p>The client agrees to indemnify and hold the Company harmless from any claims, damages, or liabilities arising from misuse of services, breach of these Terms, or provision of false/incomplete information.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">8. Termination</h2>
                     </div>
@@ -107,7 +82,7 @@ export default function TermsConditions() {
                         <p>Either party may terminate an ongoing service engagement with prior written notice as specified in the respective service agreement. Fees for services rendered up to the date of termination remain payable.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">9. Governing Law & Jurisdiction</h2>
                     </div>
@@ -115,7 +90,7 @@ export default function TermsConditions() {
                         <p>These Terms shall be governed by the laws of India. Any disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts at Krishnagiri, Tamil Nadu.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">10. Changes to These Terms</h2>
                     </div>
@@ -123,77 +98,63 @@ export default function TermsConditions() {
                         <p>The Company reserves the right to modify these Terms at any time. Continued use of the Site or services after changes are posted constitutes acceptance of the revised Terms.</p>
                     </div>
 
-                     <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white"><CircleCheckBig className="h-6 w-6" /></span>
                         <h2 className="text-2xl font-semibold text-slate-900">11. Contact Information</h2>
                     </div>
                     <div className="mt-5 space-y-3 text-slate-600">
-                        <p>For questions regarding these Terms, please contact us at [Contact Email] / [Phone Number] / [Company Address].</p>
+                        <p>
+                            For questions regarding these Terms, please contact us at{' '}
+
+
+                            <a
+                                href="https://wa.me/919500499538"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline font-medium !font-bold"
+                            >
+                                +91 9500499538
+                            </a>
+                            {' , '}
+
+                            <a
+                                href="mailto:info.gmunified@yahoo.com"
+                                className="hover:underline font-medium !font-bold"
+                            >
+                                info.gmunified@yahoo.com
+                            </a>
+
+                            {' , '}
+
+                            <a
+                                href="https://maps.google.com/?q=GM+Unified+Solutions+Bargur+Krishnagiri"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline font-medium !font-bold"
+                            >
+                                Jagadevi Road, Bargur, Krishnagiri, Tamil Nadu 635104
+                            </a>
+                        </p>
                     </div>
                 </div>
-                <section className="py-20 bg-white mt-20 rounded-3xl shadow-lg">
-                                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                       <div className="border border-gray-200 rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center relative overflow-hidden">
-                                           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-violet-200" />
-                                           <AnimatedSection>
-                                               <p className="text-violet-500 font-semibold text-sm uppercase tracking-wider mb-3">Get A Quote</p>
-                                               <h2 className="text-3xl font-black text-gray-900 mb-4">
-                                                   Customized HR, Payroll & Compliance Solutions for Your Business
-                                               </h2>
-                                               <p className="text-gray-600 mb-8 leading-relaxed">
-                                                   From payroll processing and statutory compliance to GST filing and staffing
-                                                   services, GM Unified Solution delivers reliable, cost-effective support for
-                                                   businesses of all sizes. Get a customized quote tailored to your needs.                       </p>
-                                           </AnimatedSection>
-               
-                                           <AnimatedSection delay={150}>
-                                               {submitted ? (
-                                                   <div className="text-center py-12">
-                                                       <div className="text-5xl mb-4">✅</div>
-                                                       <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
-                                                       <p className="text-gray-500">We will get back to you within 24 hours.</p>
-                                                   </div>
-                                               ) : (
-                                                   <form onSubmit={handleSubmit} className="space-y-4">
-                                                       <input
-                                                           type="email"
-                                                           required
-                                                           placeholder="Business Email"
-                                                           value={form.email}
-                                                           onChange={e => setForm({ ...form, email: e.target.value })}
-                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                                       />
-                                                       <input
-                                                           type="text"
-                                                           required
-                                                           placeholder="Full Name"
-                                                           value={form.name}
-                                                           onChange={e => setForm({ ...form, name: e.target.value })}
-                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                                                       />
-                                                       <textarea
-                                                           required
-                                                           placeholder="Share why you are contacting"
-                                                           rows={4}
-                                                           value={form.message}
-                                                           onChange={e => setForm({ ...form, message: e.target.value })}
-                                                           className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
-                                                       />
-                                                       <button
-                                                           type="submit"
-                                                           disabled={loading}
-                                                           className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                                                       >
-                                                           {loading ? 'Sending...' : 'GET A QUOTE'}
-                                                       </button>
-                                                       <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
-                                                   </form>
-                                               )}
-                                           </AnimatedSection>
-                                       </div>
-                                   </div>
-                               </section>
             </div>
+            <section className="py-16 bg-gray-900">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                        <AnimatedSection>
+                            <h2 className="text-2xl lg:text-3xl font-black text-white max-w-lg">
+                                Get personalized support for your business requirements.
+                            </h2>
+                            <p className="text-gray-400 mt-3">This structure aligns every section with your actual services and will look much more professional and trustworthy than generic HR software content.</p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={100}>
+                            <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-gray-900 transition-colors whitespace-nowrap">
+                                GET IN TOUCH <ArrowRight size={16} />
+                            </Link>
+                        </AnimatedSection>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

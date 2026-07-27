@@ -94,7 +94,7 @@ export default function About() {
 
       {/* Who We Are */}
       <section className="py-20 bg-emerald-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <p className="text-orange-500 font-semibold text-xl uppercase tracking-widest mb-3">Who We Are</p>
             <h2 className="text-3xl font-black text-gray-900 mb-8">GM Unified Solutions</h2>

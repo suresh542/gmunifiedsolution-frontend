@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 
 const services = [
-    {
+  {
     icon: '🏭',
     title: 'Factory License Registration and Renewals',
     desc: 'End-to-end factory license registration and renewal support under the Factories Act, ensuring uninterrupted, compliant plant operations.',
@@ -26,7 +26,7 @@ const services = [
     desc: 'Simplify payroll processing with accurate salary calculations, statutory deductions, payslip generation, and employee record management.',
     bgColor: 'bg-sky-200',
   },
-    {
+  {
     icon: '🧾',
     title: 'GST Registration, Returns & Compliance',
     desc: 'GST registration, return filing, annual returns, and reconciliation.',
@@ -144,11 +144,17 @@ const testimonials = [
 
 
 export default function Home() {
+  const initialFormState = { name: '', phone: '', company: '', email: '', message: '', subject: '' };
   const [openIdx, setOpenIdx] = useState(null);
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
-  const [form, setForm] = useState({ email: '', name: '', message: '' });
+  const [form, setForm] = useState(initialFormState);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -173,7 +179,7 @@ export default function Home() {
       if (!res.ok) throw new Error('Failed to submit quote');
 
       setSubmitted(true);
-      setForm({ email: '', name: '', message: '' });
+      setForm(initialFormState);
     } catch (err) {
       console.error(err);
       alert('Submission failed. Please try again.');
@@ -470,7 +476,7 @@ export default function Home() {
       <section className="py-20 bg-[linear-gradient(0deg,_rgba(34,112,195,1)_0%,_rgba(222,45,253,1)_100%)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="">
-          
+
             <AnimatedSection delay={150}>
               <p className="font-semibold text-3xl uppercase tracking-wider mb-3 text-white">
                 Client Testimonials
@@ -554,39 +560,126 @@ export default function Home() {
                   <p className="text-gray-500">We will get back to you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Business Email"
-                    value={form.email}
-                    onChange={e => setForm({ ...form, email: e.target.value })}
-                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                  />
-                  <input
-                    type="text"
-                    required
-                    placeholder="Full Name"
-                    value={form.name}
-                    onChange={e => setForm({ ...form, name: e.target.value })}
-                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                  />
-                  <textarea
-                    required
-                    placeholder="Share why you are contacting"
-                    rows={4}
-                    value={form.message}
-                    onChange={e => setForm({ ...form, message: e.target.value })}
-                    className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
-                  />
+                <form onSubmit={handleSubmit} className="space-y-5">
+
+                  {/* First Name & Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your name"
+                        value={form.name}
+                        onChange={e => setForm({ ...form, name: e.target.value })}
+                        className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Enter phone number"
+                        value={form.phone}
+                        onChange={e => setForm({ ...form, phone: e.target.value })}
+                        className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company Name */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter company name"
+                      value={form.company}
+                      onChange={e => setForm({ ...form, company: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+
+                  {/* Business Email */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Business Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter business email"
+                      value={form.email}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+                  
+                   <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Subject *
+                    </label>
+                    <select
+                      name="subject"
+                      required
+                      value={form.subject}
+                      onChange={handleChange}
+                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    >
+                      <option value="">Select a Service</option>
+                      <option value="Factory Registration & Renewals">Factory Registration & Renewals</option>
+                      <option value="Shop & Establishment Registration">Shop & Establishment Registration</option>
+                      <option value="Recruitment Services">Recruitment Services</option>
+                      <option value="NAPS & NATS Registration">NAPS & NATS Registration</option>
+                      <option value="Payroll Processing">Payroll Processing</option>
+                      <option value="Statutory Compliance Services">Statutory Compliance Services</option>
+                      <option value="HR Audit Services">HR Audit Services</option>
+                      <option value="Documentation & Registers Maintenance">
+                        Documentation & Registers Maintenance
+                      </option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Others">Others</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Message *
+                    </label>
+                    <textarea
+                      required
+                      placeholder="Share why you are contacting us"
+                      rows={4}
+                      value={form.message}
+                      onChange={e => setForm({ ...form, message: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
+                    />
+                  </div>
+
+                  {/* Subject */}
+                 
+
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-violet-600 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? 'Sending...' : 'GET A QUOTE'}
                   </button>
-                  <p className="text-center text-sm text-gray-500 font-medium">Claim your spot today!</p>
+
+                  <p className="text-center text-sm text-gray-500">
+                    Our team will contact you shortly.
+                  </p>
+
                 </form>
               )}
             </AnimatedSection>

@@ -40,7 +40,7 @@ export default function Header() {
           <Link to="/" className="flex items-center gap-2">
            
              <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
-            <span className="font-black text-xl text-gray-900 tracking-tight">GM <span>UNIFIED SOLUTION</span></span>
+            <span className="font-black text-xl text-gray-900 tracking-tight">GM <span>UNIFIED SOLUTION</span> <br /> <span className='text-sm font-'>   One Step Compliance Partner</span></span>
           </Link>
 
           {/* Desktop Nav */}

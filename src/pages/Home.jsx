@@ -426,13 +426,13 @@ export default function Home() {
               </div>
               <div className="relative">
                 <img src={caseStudies[0].img} alt="" className="rounded-2xl w-full h-60 object-cover" />
-                <div className="absolute top-4 right-4 bg-violet-400 rounded-xl p-4 text-sm">
+                {/* <div className="absolute top-4 right-4 bg-violet-400 rounded-xl p-4 text-sm">
                   <p className="font-bold text-sm">Have you met GM</p>
                   <p className="text-xs mt-1">Watch this 3-minute demo to see how GM powers productivity, engagement, and retention.</p>
                   <button className="mt-3 flex items-center gap-2 bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-full">
                     <Play size={10} fill="white" /> WATCH NOW
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </AnimatedSection>

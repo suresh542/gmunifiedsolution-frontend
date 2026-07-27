@@ -100,12 +100,12 @@ export default function Footer() {
                   href="mailto:support@GM.com"
                   className="hover:text-violet-400 transition-colors"
                 >
-                  support@gmunifiedsolution.com
+                  info.gmunified@yahoo.com
                 </a>
               </li>
               <li className="flex gap-3">
                 <MapPin size={16} className="text-violet-400 mt-0.5 shrink-0" />
-                <span>1234 Maple Street, Suite 567 Los Angeles, CA 90001 USA</span>
+                <span>Jagadevi Road, Bargur, Krishnagiri Tamilnadu 635104</span>
               </li>
             </ul>
           </div>

@@ -70,8 +70,8 @@ export default function Contact() {
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               { icon: <FaWhatsapp size={24} />, title: 'Call Us', info: '+91 9500499538', sub: 'Mon-Fri, 9AM–6PM EST' },
-              { icon: <Mail size={24} />, title: 'Email Us', info: 'support@GM.com', sub: 'We respond within 24 hours' },
-              { icon: <MapPin size={24} />, title: 'Visit Us', info: '1234 Maple Street, Suite 567', sub: 'Los Angeles, CA 90001 USA' },
+              { icon: <Mail size={24} />, title: 'Email Us', info: 'info.gmunified@yahoo.com', sub: 'We respond within 24 hours' },
+              { icon: <MapPin size={24} />, title: 'Meet Us', info: 'Jagadevi Road, Bargur,', sub: 'Krishnagiri Tamilnadu 635104' },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 100}>
                 <div className="bg-white rounded-2xl p-8 text-center border border-gray-100 hover:shadow-lg transition-shadow">

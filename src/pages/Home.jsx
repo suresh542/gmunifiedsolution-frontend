@@ -305,7 +305,7 @@ export default function Home() {
                   className="rounded-3xl w-full h-80 object-cover"
                 />
                 <div className="absolute bottom-6 right-6 bg-white rounded-2xl shadow-xl p-4 text-center">
-                  <p className="text-3xl font-black text-violet-500">89%</p>
+                  <p className="text-3xl font-black text-violet-500">99%</p>
                   <p className="text-xs text-gray-500">My score</p>
                   <div className="flex gap-1 justify-center mt-1">
                     {[1, 2, 3, 4, 5].map(i => <Star key={i} size={10} className="text-violet-400 fill-violet-400" />)}

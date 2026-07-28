@@ -213,7 +213,7 @@ export default function Home() {
                   Watch Video
                 </button> */}
               </div>
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => (
                     <img key={i} src={`https://i.pravatar.cc/40?img=${i + 10}`} alt="" className="w-9 h-9 rounded-full border-2 border-white" />
@@ -225,7 +225,7 @@ export default function Home() {
                   </div>
                   <p className="text-xs text-gray-500">7200+ reviews 4.9</p>
                 </div>
-              </div>
+              </div> */}
             </AnimatedSection>
 
             <AnimatedSection delay={150} className="relative">
@@ -347,7 +347,7 @@ export default function Home() {
               <h2 className="text-3xl font-black text-gray-900 mb-6">
                 Empowering businesses with reliable HR, payroll, compliance, and staffing services.              </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                At GM Unified Solution, we help businesses simplify workforce management, maintain statutory compliance, and optimize operations through expert-driven HR, payroll, GST, and staffing solutions. Our proactive approach ensures efficiency, accuracy, and sustainable business growth.              </p>
+GM Unified Solutions delivers comprehensive Factory Compliance, Labour Law, and Safety Approval services to help businesses operate legally, safely, and efficiently. From Factory Licensing and Labour Law Compliance to Fire NOC, Environmental Clearances, and Statutory Registrations, we ensure your organization remains fully compliant with regulatory requirements while focusing on sustainable growth and operational excellence. </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <BarChart2 size={18} />, label: 'Analytical Insights' },
@@ -622,8 +622,8 @@ export default function Home() {
                       className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
                     />
                   </div>
-                  
-                   <div>
+
+                  <div>
                     <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
                       Subject *
                     </label>
@@ -635,15 +635,28 @@ export default function Home() {
                       className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
                     >
                       <option value="">Select a Service</option>
-                      <option value="Factory Registration & Renewals">Factory Registration & Renewals</option>
-                      <option value="Shop & Establishment Registration">Shop & Establishment Registration</option>
-                      <option value="Recruitment Services">Recruitment Services</option>
-                      <option value="NAPS & NATS Registration">NAPS & NATS Registration</option>
-                      <option value="Payroll Processing">Payroll Processing</option>
-                      <option value="Statutory Compliance Services">Statutory Compliance Services</option>
-                      <option value="HR Audit Services">HR Audit Services</option>
-                      <option value="Documentation & Registers Maintenance">
-                        Documentation & Registers Maintenance
+                      <option value="Factory Compliance & Licensing">
+                        Factory Compliance & Licensing
+                      </option>
+
+                      <option value="Labour Law & Statutory Compliance">
+                        Labour Law & Statutory Compliance
+                      </option>
+
+                      <option value="Fire, Safety & Environmental Approvals">
+                        Fire, Safety & Environmental Approvals
+                      </option>
+
+                      <option value="Payroll, ESIC, EPF & Labour Welfare">
+                        Payroll, ESIC, EPF & Labour Welfare
+                      </option>
+
+                      <option value="Business Registrations & Certifications">
+                        Business Registrations & Certifications
+                      </option>
+
+                      <option value="HR Documentation & Compliance">
+                        HR Documentation & Compliance
                       </option>
                       <option value="General Inquiry">General Inquiry</option>
                       <option value="Others">Others</option>
@@ -666,7 +679,7 @@ export default function Home() {
                   </div>
 
                   {/* Subject */}
-                 
+
 
                   <button
                     type="submit"

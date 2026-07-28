@@ -65,35 +65,35 @@ export default function Contact() {
       </div>
 
       {/* Contact Info Cards */}
-       <AnimatedSection>
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-8">
-            <h1 className="text-5xl lg:text-6xl sm:text-3xl font-black text-gray-900 mb-3">Get In Touch</h1>
-            <p className="text-gray-600 max-w-2xl text-center mx-auto">
-              Connect with our experts for reliable factory compliance support.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              { icon: <FaWhatsapp size={24} />, title: 'Call Us', info: '+91 9500499538', sub: 'Mon-Fri, 9AM–6PM EST' },
-              { icon: <Mail size={24} />, title: 'Email Us', info: 'info.gmunified@yahoo.com', sub: 'We respond within 24 hours' },
-              { icon: <MapPin size={24} />, title: 'Meet Us', info: 'Jagadevi Road, Bargur,', sub: 'Krishnagiri Tamilnadu 635104' },
-            ].map((item, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-8 text-center border border-gray-100 hover:shadow-lg transition-shadow">
-                  <div className="w-14 h-14 bg-violet-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span className="text-black">{item.icon}</span>
+      <AnimatedSection>
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="mb-8">
+              <h1 className="text-5xl lg:text-6xl sm:text-3xl font-black text-gray-900 mb-3">Get In Touch</h1>
+              <p className="text-gray-600 max-w-2xl text-center mx-auto">
+                Connect with our experts for reliable factory compliance support.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                { icon: <FaWhatsapp size={24} />, title: 'Call Us', info: '+91 9500499538', sub: 'Mon-Fri, 9AM–6PM EST' },
+                { icon: <Mail size={24} />, title: 'Email Us', info: 'info.gmunified@yahoo.com', sub: 'We respond within 24 hours' },
+                { icon: <MapPin size={24} />, title: 'Meet Us', info: 'Jagadevi Road, Bargur,', sub: 'Krishnagiri Tamilnadu 635104' },
+              ].map((item, i) => (
+                <AnimatedSection key={i} delay={i * 100}>
+                  <div className="bg-white rounded-2xl p-8 text-center border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div className="w-14 h-14 bg-violet-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <span className="text-black">{item.icon}</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="font-semibold text-gray-800 text-sm">{item.info}</p>
+                    <p className="text-gray-500 text-xs mt-1">{item.sub}</p>
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="font-semibold text-gray-800 text-sm">{item.info}</p>
-                  <p className="text-gray-500 text-xs mt-1">{item.sub}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Contact Form */}
@@ -188,7 +188,7 @@ export default function Contact() {
                           required
                           value={form.email}
                           onChange={handleChange}
-                          placeholder="john@gm.com"
+                          placeholder="john@gmunifiedsolution.com"
                           className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
                         />
                       </div>
@@ -216,11 +216,29 @@ export default function Contact() {
                           className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
                         >
                           <option value="">Select a topic</option>
-                          <option value="Talent Recruitment">Talent Recruitment</option>
-                          <option value="Payroll & Benefits">Payroll & Benefits</option>
-                          <option value="Team Training">Team Training</option>
-                          <option value="Culture Consulting">Culture Consulting</option>
-                          <option value="HR Outsourcing">HR Outsourcing</option>
+                          <option value="Factory Compliance & Licensing">
+                            Factory Compliance & Licensing
+                          </option>
+
+                          <option value="Labour Law & Statutory Compliance">
+                            Labour Law & Statutory Compliance
+                          </option>
+
+                          <option value="Fire, Safety & Environmental Approvals">
+                            Fire, Safety & Environmental Approvals
+                          </option>
+
+                          <option value="Payroll, ESIC, EPF & Labour Welfare">
+                            Payroll, ESIC, EPF & Labour Welfare
+                          </option>
+
+                          <option value="Business Registrations & Certifications">
+                            Business Registrations & Certifications
+                          </option>
+
+                          <option value="HR Documentation & Compliance">
+                            HR Documentation & Compliance
+                          </option>
                           <option value="General Inquiry">General Inquiry</option>
                           <option value="Others">Others</option>
                         </select>

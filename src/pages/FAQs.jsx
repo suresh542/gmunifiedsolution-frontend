@@ -62,7 +62,7 @@ function AccordionItem({ q, a, open, onClick }) {
 }
 
 export default function FAQs() {
- const initialFormState = { name: '', phone: '', company: '', email: '', message: '', subject: '' };
+  const initialFormState = { name: '', phone: '', company: '', email: '', message: '', subject: '' };
   const [openIdx, setOpenIdx] = useState(null);
   const [form, setForm] = useState(initialFormState);
   const [submitted, setSubmitted] = useState(false);
@@ -209,136 +209,149 @@ export default function FAQs() {
             </AnimatedSection>
 
             <AnimatedSection delay={150}>
-                      {submitted ? (
-                        <div className="text-center py-12">
-                          <div className="text-5xl mb-4">✅</div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
-                          <p className="text-gray-500">We will get back to you within 24 hours.</p>
-                        </div>
-                      ) : (
-                        <form onSubmit={handleSubmit} className="space-y-5">
-        
-                          {/* First Name & Phone */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                              <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                                First Name *
-                              </label>
-                              <input
-                                type="text"
-                                required
-                                placeholder="Enter your name"
-                                value={form.name}
-                                onChange={e => setForm({ ...form, name: e.target.value })}
-                                className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                              />
-                            </div>
-        
-                            <div>
-                              <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                                Phone Number *
-                              </label>
-                              <input
-                                type="tel"
-                                required
-                                placeholder="Enter phone number"
-                                value={form.phone}
-                                onChange={e => setForm({ ...form, phone: e.target.value })}
-                                className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                              />
-                            </div>
-                          </div>
-        
-                          {/* Company Name */}
-                          <div>
-                            <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                              Company Name *
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              placeholder="Enter company name"
-                              value={form.company}
-                              onChange={e => setForm({ ...form, company: e.target.value })}
-                              className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                            />
-                          </div>
-        
-                          {/* Business Email */}
-                          <div>
-                            <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                              Business Email *
-                            </label>
-                            <input
-                              type="email"
-                              required
-                              placeholder="Enter business email"
-                              value={form.email}
-                              onChange={e => setForm({ ...form, email: e.target.value })}
-                              className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                            />
-                          </div>
-                          
-                           <div>
-                            <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                              Subject *
-                            </label>
-                            <select
-                              name="subject"
-                              required
-                              value={form.subject}
-                              onChange={handleChange}
-                              className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
-                            >
-                              <option value="">Select a Service</option>
-                              <option value="Factory Registration & Renewals">Factory Registration & Renewals</option>
-                              <option value="Shop & Establishment Registration">Shop & Establishment Registration</option>
-                              <option value="Recruitment Services">Recruitment Services</option>
-                              <option value="NAPS & NATS Registration">NAPS & NATS Registration</option>
-                              <option value="Payroll Processing">Payroll Processing</option>
-                              <option value="Statutory Compliance Services">Statutory Compliance Services</option>
-                              <option value="HR Audit Services">HR Audit Services</option>
-                              <option value="Documentation & Registers Maintenance">
-                                Documentation & Registers Maintenance
-                              </option>
-                              <option value="General Inquiry">General Inquiry</option>
-                              <option value="Others">Others</option>
-                            </select>
-                          </div>
-        
-                          {/* Message */}
-                          <div>
-                            <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
-                              Message *
-                            </label>
-                            <textarea
-                              required
-                              placeholder="Share why you are contacting us"
-                              rows={4}
-                              value={form.message}
-                              onChange={e => setForm({ ...form, message: e.target.value })}
-                              className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
-                            />
-                          </div>
-        
-                          {/* Subject */}
-                         
-        
-                          <button
-                            type="submit"
-                            disabled={loading}
-                            className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-violet-600 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-                          >
-                            {loading ? 'Sending...' : 'GET A QUOTE'}
-                          </button>
-        
-                          <p className="text-center text-sm text-gray-500">
-                            Our team will contact you shortly.
-                          </p>
-        
-                        </form>
-                      )}
-                    </AnimatedSection>
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-5xl mb-4">✅</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Quote Requested!</h3>
+                  <p className="text-gray-500">We will get back to you within 24 hours.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+
+                  {/* First Name & Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your name"
+                        value={form.name}
+                        onChange={e => setForm({ ...form, name: e.target.value })}
+                        className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Enter phone number"
+                        value={form.phone}
+                        onChange={e => setForm({ ...form, phone: e.target.value })}
+                        className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company Name */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter company name"
+                      value={form.company}
+                      onChange={e => setForm({ ...form, company: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+
+                  {/* Business Email */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Business Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter business email"
+                      value={form.email}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Subject *
+                    </label>
+                    <select
+                      name="subject"
+                      required
+                      value={form.subject}
+                      onChange={handleChange}
+                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    >
+                      <option value="">Select a Service</option>
+                      <option value="Factory Compliance & Licensing">
+                        Factory Compliance & Licensing
+                      </option>
+
+                      <option value="Labour Law & Statutory Compliance">
+                        Labour Law & Statutory Compliance
+                      </option>
+
+                      <option value="Fire, Safety & Environmental Approvals">
+                        Fire, Safety & Environmental Approvals
+                      </option>
+
+                      <option value="Payroll, ESIC, EPF & Labour Welfare">
+                        Payroll, ESIC, EPF & Labour Welfare
+                      </option>
+
+                      <option value="Business Registrations & Certifications">
+                        Business Registrations & Certifications
+                      </option>
+
+                      <option value="HR Documentation & Compliance">
+                        HR Documentation & Compliance
+                      </option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Others">Others</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
+                      Message *
+                    </label>
+                    <textarea
+                      required
+                      placeholder="Share why you are contacting us"
+                      rows={4}
+                      value={form.message}
+                      onChange={e => setForm({ ...form, message: e.target.value })}
+                      className="w-full border border-gray-200 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
+                    />
+                  </div>
+
+                  {/* Subject */}
+
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-violet-600 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {loading ? 'Sending...' : 'GET A QUOTE'}
+                  </button>
+
+                  <p className="text-center text-sm text-gray-500">
+                    Our team will contact you shortly.
+                  </p>
+
+                </form>
+              )}
+            </AnimatedSection>
           </div>
         </div>
       </section>

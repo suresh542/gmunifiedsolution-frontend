@@ -31,13 +31,14 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Link to="/" className="flex items-center gap-2">
 
-                <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
+                <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-4" />
                 <span className="font-black text-lg text-white tracking-tight">GM <span>UNIFIED SOLUTION</span></span>
               </Link>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              GM Unified Solutions delivers tailored HR services — recruitment, payroll, training, and
-              culture consulting — to help organizations attract, develop, and retain top talent.
+             GM Unified Solutions provides expert support in Factory Compliance & Licensing, 
+             Labour Law & Statutory Compliance, and Fire, Safety & Environmental Approvals, 
+             ensuring seamless regulatory compliance and business continuity.
             </p>
             <div className="flex gap-3">
               {[SocialFacebook, SocialTwitter, SocialYoutube, SocialInstagram, SocialLinkedin].map((Icon, i) => (

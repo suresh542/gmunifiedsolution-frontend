@@ -213,9 +213,11 @@ function BigCard({ s, i }) {
         <div className="text-4xl mb-5">{s.icon}</div>
         <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-black' : 'text-gray-900'}`}>{s.title}</h3>
         <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
-        <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
-          READ MORE <ChevronRight size={14} />
-        </button>
+        <Link to="/contact">
+          <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
+            READ MORE <ChevronRight size={14} />
+          </button>
+        </Link>
       </div>
     </AnimatedSection>
   );
@@ -234,9 +236,11 @@ function SmallCard({ s, i }) {
         <div className="text-4xl mb-5">{s.icon}</div>
         <h3 className={`font-bold text-xl mb-3 ${s.featured ? 'text-black' : 'text-gray-900'}`}>{s.title}</h3>
         <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
+        <Link to="/contact">
         <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
           READ MORE <ChevronRight size={14} />
         </button>
+        </Link>
       </div>
     </AnimatedSection>
   );

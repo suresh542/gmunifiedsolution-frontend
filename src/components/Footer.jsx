@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle  } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 import headerLogo from '../assets/GM-Footer.png'; // Adjust the path to your logo image
@@ -22,6 +22,24 @@ const SocialLinkedin = () => (
 );
 
 export default function Footer() {
+  const socialLinks = [
+    {
+      icon: SocialFacebook,
+      url: 'https://www.facebook.com/profile.php?id=61582750327534',
+    },
+    {
+      icon: SocialYoutube,
+      url: 'https://youtube.com/@gmunifiedsolutions?si=5a23uoTBDn2Xpw7C',
+    },
+    {
+      icon: SocialInstagram,
+      url: ' https://www.instagram.com/gm_unifiedsolutions?igsh=dTZtYmEwMG84cHB2&utm_source=ig_contact_invite',
+    },
+    {
+      icon: SocialLinkedin,
+      url: 'https://www.linkedin.com/in/rajasekar-g-34189b225/',
+    },
+  ];
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -36,13 +54,21 @@ export default function Footer() {
               </Link>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
-             GM Unified Solutions provides expert support in Factory Compliance & Licensing, 
-             Labour Law & Statutory Compliance, and Fire, Safety & Environmental Approvals, 
-             ensuring seamless regulatory compliance and business continuity.
+              GM Unified Solutions provides expert support in Factory Compliance & Licensing,
+              Labour Law & Statutory Compliance, and Fire, Safety & Environmental Approvals,
+              ensuring seamless regulatory compliance and business continuity.
             </p>
+
+
             <div className="flex gap-3">
-              {[SocialFacebook, SocialTwitter, SocialYoutube, SocialInstagram, SocialLinkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center hover:border-violet-400 hover:text-violet-400 transition-colors">
+              {socialLinks.map(({ icon: Icon, url }, i) => (
+                <a
+                  key={i}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center hover:border-violet-400 hover:text-violet-400 transition-colors"
+                >
                   <Icon size={14} />
                 </a>
               ))}
@@ -85,7 +111,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">Get in touch</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
-                <FaWhatsapp   size={16} className="text-violet-400 mt-0.5 shrink-0" />
+                <FaWhatsapp size={16} className="text-violet-400 mt-0.5 shrink-0" />
                 <a
                   href="https://wa.me/919500499538"
                   target="_blank"
@@ -106,7 +132,14 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <MapPin size={16} className="text-violet-400 mt-0.5 shrink-0" />
-                <span>Jagadevi Road, Bargur, Krishnagiri Tamilnadu 635104</span>
+                <a
+                  href="https://www.google.com/maps?q=12.5343999,78.3519608"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-violet-400 transition-colors"
+                >
+                  Jagadevi Road, Bargur, Krishnagiri, Tamil Nadu 635104
+                </a>
               </li>
             </ul>
           </div>

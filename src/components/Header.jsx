@@ -41,7 +41,7 @@ export default function Header() {
             <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
             <div className="text-center">
               <div>
-                <span className="font-black text-xl text-gray-900 tracking-tight text-center hidden lg:flex">GM  <span> UNIFIED SOLUTION</span></span>
+                <span className="font-black text-xl text-gray-900 tracking-tight text-center hidden lg:flex">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
               </div>
              <div className="hidden lg:flex justify-center items-center text-sm font-semibold text-center">
                 <span >   One Step Compliance Partner</span>

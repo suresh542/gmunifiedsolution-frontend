@@ -43,7 +43,7 @@ export default function Header() {
               <div>
                 <span className="font-black text-xl text-gray-900 tracking-tight text-center hidden lg:flex">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
               </div>
-             <div className="hidden lg:flex justify-center items-center text-sm font-semibold text-center">
+              <div className="hidden lg:flex justify-center items-center text-sm font-semibold text-center">
                 <span >   One Step Compliance Partner</span>
               </div>
             </div>
@@ -57,6 +57,14 @@ export default function Header() {
             <NavLink to="/faqs" className={navLinkClass}>FAQS</NavLink>
             <NavLink to="/contact" className={navLinkClass}>CONTACT US</NavLink>
           </nav>
+          <div className="text-center" >
+            <div>
+              <span className="font-black text-md text-gray-900 tracking-tight text-center flex lg:hidden">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
+            </div>
+            <div className="flex lg:hidden justify-center items-center text-xs font-semibold text-center">
+              <span >   One Step Compliance Partner</span>
+            </div>
+          </div>
 
           {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-4">

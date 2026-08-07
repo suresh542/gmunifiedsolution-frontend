@@ -215,7 +215,7 @@ function BigCard({ s, i }) {
         <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
         <Link to="/contact">
           <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
-            READ MORE <ChevronRight size={14} />
+            View Details <ChevronRight size={14} />
           </button>
         </Link>
       </div>
@@ -238,7 +238,7 @@ function SmallCard({ s, i }) {
         <p className={`text-sm leading-relaxed mb-6 ${s.featured ? 'text-cyan-800' : 'text-gray-500'}`}>{s.desc}</p>
         <Link to="/contact">
         <button className={`inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full ${s.featured ? 'bg-violet-400 text-black' : 'bg-gray-900 text-white'} hover:opacity-90 transition-opacity`}>
-          READ MORE <ChevronRight size={14} />
+          View Details <ChevronRight size={14} />
         </button>
         </Link>
       </div>
@@ -352,7 +352,7 @@ export default function Solutions() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Our Service</p>
+            <p className="text-violet-500 font-semibold text-3xl uppercase tracking-wider mb-3">Our Services</p>
             <h2 className="text-3xl lg:text-4xl font-black text-gray-900">
               Complete Business Support Services for <br />Modern Organizations
             </h2>

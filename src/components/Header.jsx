@@ -41,10 +41,10 @@ export default function Header() {
             <img src={headerLogo} alt="Logo" className="w-auto h-10 pe-3" />
             <div className="text-center">
               <div>
-                <span className="font-black text-xl text-gray-900 tracking-tight text-center hidden lg:flex">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
+                <span className="font-black text-xl text-[#D4AF37] tracking-tight text-center hidden lg:flex">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
               </div>
               <div className="hidden lg:flex justify-center items-center text-sm font-semibold text-center">
-                <span >   One Step Compliance Partner</span>
+                <span >   One Partner for All Your Business</span>
               </div>
             </div>
           </Link>
@@ -59,10 +59,10 @@ export default function Header() {
           </nav>
           <div className="text-center" >
             <div>
-              <span className="font-black text-md text-gray-900 tracking-tight text-center flex lg:hidden">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
+              <span className="font-black text-md text-[#D4AF37] tracking-tight text-center flex lg:hidden">GM  <span className="ps-2">UNIFIED SOLUTION</span></span>
             </div>
             <div className="flex lg:hidden justify-center items-center text-xs font-semibold text-center">
-              <span >   One Step Compliance Partner</span>
+              <span >   One Partner for All Your Business</span>
             </div>
           </div>
 

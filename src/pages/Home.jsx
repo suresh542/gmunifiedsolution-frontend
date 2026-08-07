@@ -247,10 +247,10 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute top-6 -right-6 bg-gray-900 text-white rounded-2xl shadow-xl p-4">
-                  <p className="text-violet-400 font-bold text-xl">Modern,</p>
-                  <p className="text-sm">Fast-Growing</p>
-                  <p className="text-sm">Global Businesses</p>
+                <div className="absolute top-5 -right-6 bg-gray-900 text-white rounded-2xl shadow-xl p-4">
+                  <p className="text-violet-400 font-bold text-lg">100+ Happy Clients,</p>
+                  <p className="text-xs">Pan India Services</p>
+                  <p className="text-xs">Trusted Compliance Experts*</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -265,7 +265,7 @@ export default function Home() {
                 {[
                   {
                     title: "How We Work",
-                    desc: "Factory Setup, Regulatory Approvals, Labour Compliance & Payroll Services Under One Roof."
+                    desc: "Factory Setup, Regulatory Approvals, Labour Compliance & Payroll Services under one roof."
                   },
                   {
                     title: "How We Lead",
@@ -347,7 +347,7 @@ export default function Home() {
               <h2 className="text-3xl font-black text-gray-900 mb-6">
                 Empowering businesses with reliable HR, payroll, compliance, and staffing services.              </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-GM Unified Solutions delivers comprehensive Factory Compliance, Labour Law, and Safety Approval services to help businesses operate legally, safely, and efficiently. From Factory Licensing and Labour Law Compliance to Fire NOC, Environmental Clearances, and Statutory Registrations, we ensure your organization remains fully compliant with regulatory requirements while focusing on sustainable growth and operational excellence. </p>
+                GM Unified Solutions delivers comprehensive Factory Compliance, Labour Law, and Safety Approval services to help businesses operate legally, safely, and efficiently. From Factory Licensing and Labour Law Compliance to Fire NOC, Environmental Clearances, and Statutory Registrations, we ensure your organization remains fully compliant with regulatory requirements while focusing on sustainable growth and operational excellence. </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <BarChart2 size={18} />, label: 'Analytical Insights' },
@@ -387,7 +387,7 @@ GM Unified Solutions delivers comprehensive Factory Compliance, Labour Law, and 
               Cross-platform HR solutions  &<br /> Business Solutions for Modern Organizations
             </h2>
             <p className="text-gray-500 mt-4 max-w-xl mx-auto">
-              Find the right talent with our recruitment and staffing solutions. We support permanent hiring, contract staffing, and workforce deployment across industries.            </p>
+              We provide complete HR, Payroll, Factory Compliance, Labour Law Compliance, Licensing, GST Registration and Business Registration services to help your business stay compliant and grow with confidence.                 </p>
           </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
